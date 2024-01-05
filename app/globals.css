@@ -4,7 +4,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #fafbfc;
+  --foreground: #f6f6f6;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,4 +24,8 @@ body {
 
 .bg-background {
   background: var(--background);
+}
+
+.text-foreground {
+  color: var(--foreground);
 }

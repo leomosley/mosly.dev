@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import ContactButton from './contact-button';
 
 export default function Home() {
   return (
@@ -22,9 +23,7 @@ export default function Home() {
             target="_blank"
           >Github
           </a>
-          <button
-            className="w-1/2 bg bg-foreground p-1 text-lg rounded-lg border-2 border-solid border-neutral-700 text-neutral-400"
-          >Contact</button>
+          <ContactButton email={'leo.mosley2@gmail.com'} />
         </div>
       </section>
     </main>

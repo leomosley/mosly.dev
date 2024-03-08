@@ -2,30 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #f6f6f6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #181818;
-    --foreground: #1F1F1F;
+@layer base {
+  body {
+    @apply
+      bg-neutral-900
+      text-gray-200
+      overflow-x-hidden
   }
 }
 
-body {
-  background: var(--background);
+.caret {
+  position: absolute;
+  height: 1.2em;
+  width: 8.75px;
+  display: inline-block;
+  margin-top: 2px;
+  animation: blinker 1s linear infinite;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
 
-.bg-foreground {
-  background: var(--foreground);
+.glow {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
-.bg-background {
-  background: var(--background);
-}
-
-.text-foreground {
-  color: var(--foreground);
+@keyframes blinker {
+  50% {
+    opacity: 0.1;
+  }
 }

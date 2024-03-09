@@ -94,7 +94,7 @@ export default function CommandLineInput({
       }
       return output;
     } else {
-      throw createError("BadArgument", "help doesnt take arguments")
+      throw createError("BadArgument", "help doesnt take any arguments.")
     }
   }
   
@@ -105,13 +105,13 @@ export default function CommandLineInput({
       output += files[currentPath].map(item => item.filename).join("\n");
       return output;
     } else {
-      throw createError("BadArgument", "ls doesnt take arguments")
+      throw createError("BadArgument", "ls doesnt take any arguments.")
     }
   }
   
   const cd = (arg: string): string => {
     if (!arg) {
-      throw createError("BadArgument", "Incorrectly formatted cd");
+      throw createError("BadArgument", "Provide an argument.");
     }
   
     const navigateUp = (current: string, levels: number): string => {
@@ -144,7 +144,7 @@ export default function CommandLineInput({
       setPreviousPath("~");
       return "clear";
     } else {
-      throw createError("BadArgument", "clear doesnt take arguments.")
+      throw createError("BadArgument", "clear doesnt take any arguments.")
     }
   }
 
@@ -152,7 +152,7 @@ export default function CommandLineInput({
     if (arg) {
       return arg;
     } else {
-      throw createError("BadArgument", "Incorrectly formatted echo.");
+      throw createError("BadArgument", "Provide a message to echo.");
     }
   }
   
@@ -168,7 +168,7 @@ export default function CommandLineInput({
       }
       return output; 
     } else {
-      throw createError("BadArgument", "Incorrectly formatted md.");
+      throw createError("BadArgument", "Provide a file to open.");
     }
   }
 

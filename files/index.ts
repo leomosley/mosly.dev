@@ -29,24 +29,7 @@ cNO;........................................
       extension: ".md"
     }
   ],
-  "/about": [
-    {
-      filename: "about.md", 
-      content:"", 
-      extension: ".md"
-    }
-  ],
+  "/about": [],
   "/projects": [],
-  "/projects/project1": [
-    {
-      filename: "project.md", 
-      content:"", 
-      extension: ".md"}
-  ],
-  "/contact": [
-    {
-      filename: "contact.md", 
-      content:"", 
-      extension: ".md"}
-  ],
+  "/contact": [],
 }

@@ -26,7 +26,7 @@ interface Props {
 const paths: {[key: string]: string[]} = {
   "~": ["about", "projects", "contact"],
   "/about": [""],
-  "/projects": ["project1"],
+  "/projects": [""],
   "/contact": [""],
 };
 

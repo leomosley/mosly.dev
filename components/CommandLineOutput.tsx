@@ -11,13 +11,15 @@ interface Props {
   setPreviousCommands: React.Dispatch<React.SetStateAction<Command[]>>;
   currentPath: string;
   previousPaths: string[];
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 
 export default function CommandLineOutput({
   previousCommands,
   setPreviousCommands,
   currentPath,
-  previousPaths
+  previousPaths,
+  inputRef
 } : Props) {
   const [displayedResponses, setDisplayedResponses] = useState<string[]>([]);
 
@@ -35,6 +37,9 @@ export default function CommandLineOutput({
               newResponses[index] = currentResponse;
               return newResponses;
             });
+            if (index === previousCommands.length - 1 && charIndex === characters.length - 1) {
+              inputRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }
           }, charIndex * 3);
         });
       });
@@ -46,21 +51,21 @@ export default function CommandLineOutput({
   return (
     <div className="flex flex-col">
       {previousCommands.map((command, index) => (
-        <>
-        <div className="flex flex-row">
-          <span 
-            className="text-green-500 glow"
-          >user@leomosley.com:{previousPaths[index]}$&nbsp;</span>
-          <span 
-            className="text-teal-100 glow"
-          >{command.prompt}</span>
+        <div key={index}>
+          <div className="flex flex-row">
+            <span 
+              className="text-green-500 glow"
+            >user@leomosley.com:{previousPaths[index]}$&nbsp;</span>
+            <span 
+              className="text-teal-100 glow"
+            >{command.prompt}</span>
+          </div>
+          <pre className="glow text-purple transition duration-1000 ease-in">
+            {index === (previousCommands.length-1)?
+              displayedResponses[index] : command.response
+            }
+          </pre>
         </div>
-        <pre className="glow text-purple transition duration-1000 ease-in">
-          {index === (previousCommands.length-1)?
-            displayedResponses[index] : command.response
-          }
-        </pre>
-        </>
       ))}
     </div>
   );

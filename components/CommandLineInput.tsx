@@ -49,6 +49,7 @@ export default function CommandLineInput({
   const [dir, setDir] = useState<string[]>(paths[currentPath]);
   const [caretPosition, setCaretPosition] = useState<number | null>(null);
   const [labelWidth, setLabelWidth] = useState<number | null>(null);
+  const [promptIndex, setPromptIndex] = useState<number | null>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -73,6 +74,7 @@ export default function CommandLineInput({
     }
     setPreviousPaths(prev => [...prev, currentPath]);
     setInputValue("");
+    setCaretPosition(0);
     setLoading(false);
   }
   
@@ -201,7 +203,7 @@ export default function CommandLineInput({
   
   const runCommand = (prompt: string): string => {
     let response = "";
-    let parsed = prompt.trim().split(" ");
+    let parsed = prompt.toLowerCase().trim().split(" ");
     let command;
     let argument;
     
@@ -249,9 +251,11 @@ export default function CommandLineInput({
   };
 
   const handleArrowKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    setTimeout(handleCaretMove, 0);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      setTimeout(handleCaretMove, 0);
+    }
   };
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     handleCaretMove();
     setInputValue(e.target.value);

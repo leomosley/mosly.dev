@@ -35,7 +35,7 @@ export default function Terminal() {
   const [currentPath, setCurrentPath] = useState<string>('~');
   const [previousPaths, setPreviousPaths] = useState<string[]>([currentPath]);
   const [previousPath, setPreviousPath] = useState<string>('~');
-  const containerRef = useRef();
+  const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -43,8 +43,9 @@ export default function Terminal() {
   }, [previousPaths]);
 
   const handleDivClick = () => {
-    inputRef.current && inputRef.current.focus();
+    inputRef.current?.focus();
   };
+
   useEffect(() => {
     document.addEventListener("click", handleDivClick);
     return () => {
@@ -53,12 +54,13 @@ export default function Terminal() {
   }, [containerRef]);
 
   return (
-    <div className="bg-neutral-900 p-2 h-full overflow-y-auto overflow-x-hidden font-mono">
+    <div ref={containerRef} className="bg-neutral-900 p-2 font-mono">
       <CommandLineOutput 
         previousCommands={previousCommands}
         setPreviousCommands={setPreviousCommands}
         currentPath={currentPath}
         previousPaths={previousPaths}
+        inputRef={inputRef}
       />
       <CommandLineInput 
         loading={loading}

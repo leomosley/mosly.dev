@@ -52,7 +52,7 @@ export default function CommandLineInput({
   const [caretPosition, setCaretPosition] = useState<number | null>(null);
   const [labelWidth, setLabelWidth] = useState<number | null>(null);
   const [promptIndex, setPromptIndex] = useState<number | null>(null);
-  const labelRef = useRef<HTMLSpanElement>(null);
+  const labelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     inputRef.current?.focus();
@@ -293,10 +293,11 @@ export default function CommandLineInput({
   
   return (
     <form className="flex" onSubmit={submit}>
-      <span 
-        ref={labelRef}
-        className="text-green-500 glow"
-      >user@leomosley.com:{currentPath}$&nbsp;</span>
+      <div ref={labelRef}>
+        <span className="text-green-500 glow">user@leomosley.com:</span>
+        <span className="text-blue-400 glow">{currentPath}</span>
+        <span className="text-teal-100 glow">$&nbsp;</span>
+      </div>
       <input
         ref={inputRef}
         className={clsx(

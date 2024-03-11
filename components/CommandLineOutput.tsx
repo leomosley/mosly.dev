@@ -53,12 +53,10 @@ export default function CommandLineOutput({
       {previousCommands.map((command, index) => (
         <div key={index}>
           <div className="flex flex-row">
-            <span 
-              className="text-green-500 glow"
-            >user@leomosley.com:{previousPaths[index]}$&nbsp;</span>
-            <span 
-              className="text-teal-100 glow"
-            >{command.prompt}</span>
+            <span className="text-green-500 glow">user@leomosley.com:</span>
+            <span className="text-blue-400 glow">{previousPaths[index]}</span>
+            <span className="text-teal-100 glow">$&nbsp;</span>
+            <span className="text-teal-100 glow">{command.prompt}</span>
           </div>
           <pre className="glow text-purple transition duration-1000 ease-in">
             {index === (previousCommands.length-1)?

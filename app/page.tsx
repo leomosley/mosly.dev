@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: 'Portfolio | Leo Mosley'
 }
 
-export default function PortfolioHome() {
+export default function Home() {
   return (
     <div>
       <div>portfolio</div>

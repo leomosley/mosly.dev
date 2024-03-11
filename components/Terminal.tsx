@@ -61,7 +61,7 @@ export default function Terminal({
   }, [containerRef]);
 
   return (
-    <div ref={containerRef} className="bg-neutral-900 p-2 font-mono">
+    <div ref={containerRef} className="bg-neutral-950 p-2 font-mono">
       <CommandLineOutput 
         previousCommands={previousCommands}
         setPreviousCommands={setPreviousCommands}

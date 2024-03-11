@@ -176,7 +176,7 @@ export default function CommandLineInput({
 
   const portfolio = (arg: string): string => {
     if (!arg) {
-      router.push('/portfolio');
+      router.push('/');
       return 'Redirecting to portfolio...';
     } else {
       throw createError("BadArgument", "portfolio doesnt take any arguments.")

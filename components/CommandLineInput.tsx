@@ -2,7 +2,7 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
-import { FileObject, files } from "@/files";
+import { Files } from "@/files";
 
 interface Command {
   prompt: string;
@@ -10,6 +10,7 @@ interface Command {
 }
 
 interface Props {
+  files: Files;
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   previousCommands: Command[];
@@ -31,6 +32,7 @@ const paths: {[key: string]: string[]} = {
 };
 
 export default function CommandLineInput({
+  files,
   loading,
   setLoading,
   previousCommands,

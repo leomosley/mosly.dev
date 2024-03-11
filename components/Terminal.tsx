@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
+import { Files } from '@/files';
 
 import CommandLineInput from './CommandLineInput';
 import CommandLineOutput from './CommandLineOutput';
@@ -7,6 +8,10 @@ import CommandLineOutput from './CommandLineOutput';
 interface Command {
   prompt: string;
   response: string;
+}
+
+interface Props {
+  files: Files
 }
 
 const welcomeMessage = `~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,7 +32,9 @@ Welcome to Leo Mosley's Interactive Terminal Portfolio.
 Type 'portfolio' to be redirected to the portfolio web page.
 For a list of available commands, type 'help'.`;
 
-export default function Terminal() {
+export default function Terminal({
+  files
+}: Props) {
   const [loading, setLoading] = useState<boolean>(false);
   const [previousCommands, setPreviousCommands] = useState<Command[]>([
     {prompt: "welcome", response: welcomeMessage}
@@ -63,6 +70,7 @@ export default function Terminal() {
         inputRef={inputRef}
       />
       <CommandLineInput 
+        files={files}
         loading={loading}
         setLoading={setLoading}
         previousCommands={previousCommands}

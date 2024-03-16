@@ -6,7 +6,7 @@ export default function Header() {
   const navigation = [
     {label: "Terminal", href: "/terminal"},
     {label: "Projects", href: "#projects"},
-    {label: "Skills", href: "#links"},
+    {label: "Skills", href: "#skills"},
   ];
 
   return (

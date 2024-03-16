@@ -2,7 +2,6 @@
 export interface File {
   filename: string; 
   content: string; 
-  extension: string
 }
 
 export interface Files {
@@ -117,23 +116,43 @@ export interface Repo {
 }
 
 export async function getRepos() {
-  const res = await fetch('https://api.github.com/users/leomosley/repos', { cache: 'no-store'});
-  const data = await res.json() as Repo[];
-  return data;
+  try {
+    const res = await fetch('https://api.github.com/users/leomosley/repos');
+    if (!res.ok) {
+      throw new Error('Failed to fetch repos');
+    }
+    const data = await res.json();
+    return data as Repo[];
+  } catch (error) {
+    console.error('Error fetching repos:', error);
+  }
 }
-
 export async function getShowcaseRepos() {
   const repos = await getRepos();
-  const filtered = repos.filter(repo => repo.topics?.includes('showcase'));
-  return filtered;
+  if (repos) {
+    const filtered = repos.filter(repo => repo.topics?.includes('showcase'));
+    return filtered;
+  }
 }
 
+export async function getRepo(name: string) {
+  try {
+    const res = await fetch(`https://api.github.com/repos/leomosley/${name}`);
+    if (!res.ok) {
+      throw new Error('Failed to fetch repos');
+    }
+    const data = await res.json();
+    return data as Repo;
+  } catch (error) {
+    console.error('Error fetching repos:', error);
+  }
+}  
+
 export async function getRepoReadme(repo: Repo) {
-  const owner = repo.owner?.login;
   const name = repo.name;
   const branch = repo.default_branch;
 
-  const res = await fetch(`https://raw.githubusercontent.com/${owner}/${name}/${branch}/README.md`);
+  const res = await fetch(`https://raw.githubusercontent.com/leomosley/${name}/${branch}/README.md`);
   const raw = res.text();
   return raw;
 }
@@ -147,16 +166,16 @@ export async function getFiles() {
   }
 
   const showcases = await getShowcaseRepos();
-  for (const showcase of showcases) {
-    let extension = ".md";
-    let filename = showcase.name + extension;
-    let content = await getRepoReadme(showcase);
-
-    files["/projects"].push({
-      filename: filename,
-      content: content ?? "No content",
-      extension: extension
-    })
+  if (showcases) {
+    for (const showcase of showcases) {
+      let filename = showcase.name;
+      let content = await getRepoReadme(showcase);
+  
+      files["/projects"].push({
+        filename: filename ?? "filename",
+        content: content ?? "No content",
+      })
+    }
   }
   return files;
 };

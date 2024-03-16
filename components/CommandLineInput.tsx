@@ -160,15 +160,13 @@ export default function CommandLineInput({
   
   const open = (arg: string): string => {
     if (arg) {
-      let output = "";
       let filtered = files[currentPath].filter(f => f.filename === arg);
       if (filtered) {
-        let file = filtered[0];
-        output += file.content;
+        window.open(`https://www.leomosley.com/projects/${arg}`, '_blank')?.focus();
       } else {
         throw createError("BadArgument", "Cannot find specified file.");
       }
-      return output; 
+      return "Opening project..."; 
     } else {
       throw createError("BadArgument", "Provide a file to open.");
     }

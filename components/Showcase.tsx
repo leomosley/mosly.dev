@@ -11,7 +11,7 @@ export default async function Showcase({
   repo,
 }: Props) {
   const url = "https://github-language-color.shuttleapp.rs/" + repo.language;
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "no-store" });
   const languageColor = await res.json();
   const date = repo.updated_at?.slice(0, 10);
 

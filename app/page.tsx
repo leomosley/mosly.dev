@@ -11,14 +11,13 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const showcaseRepos = await getShowcaseRepos();
-
   return (
     <>
     <Header />
     <div className="flex items-center h-screen p-4">
       <div className="flex flex-col p-2">
-        <h1 className="">Hi, i'm Leo...</h1>
-        <p className=""></p>
+        <h1 className="">Intro</h1>
+        <p className="">Desc</p>
       </div>
     </div>
     <div id="projects" className="flex flex-col items-center justify-center h-screen p-4 md:p-10 mx-auto max-w-7xl">

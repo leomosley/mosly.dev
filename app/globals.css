@@ -5,10 +5,10 @@
 @layer base {
   body {
     @apply
-      bg-neutral-950
+      bg-neutral-900
       text-gray-200
-      overflow-x-hidden
       scroll-smooth
+      tracking-tight
   }
 }
 

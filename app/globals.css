@@ -5,7 +5,7 @@
 @layer base {
   body {
     @apply
-      bg-neutral-900
+      bg-neutral-950
       text-gray-200
       scroll-smooth
       tracking-tight

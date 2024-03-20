@@ -1,72 +1,7 @@
-## Using the terminal
+# My Boring Portfolio
+This is just a simple static site porfolio I built with NextJS. The design is heavily influenced Somewhat new to Next but I feel as if im getting a grip of it now. 
+This site provides some info on me, showcases some of my projects, and is the platform on which I post my blogs [(here)](https://www.leomosley.com/blog). 
 
-The terminal proivdes an fun way of interacting with the portfolio website. 
+The projects showcased are simply just the GitHub repos which I have given the topic `showcase` - they're fetched using the GitHub api. 
 
-
-### `Help` Command
-
-Lists all available commands and their descriptions.
-
-```bash
-help
-```
-
-### LS Command
-Lists files and subdirectories in the current directory.
-
-Usage:
-
-bash
-Copy code
-ls
-3. CD Command
-Changes the current directory.
-
-Usage:
-
-bash
-Copy code
-cd <path>
-Use cd .. to go up a level.
-4. Clear Command
-Clears the terminal screen.
-
-Usage:
-
-bash
-Copy code
-clear
-5. Echo Command
-Displays messages.
-
-Usage:
-
-bash
-Copy code
-echo <message>
-6. Open Command
-Opens a file in the terminal.
-
-Usage:
-
-bash
-Copy code
-open <filename>
-7. Portfolio Command
-Redirects to the portfolio page.
-
-Usage:
-
-bash
-Copy code
-portfolio
-8. GitHub Command
-Opens the GitHub profile.
-
-Usage:
-
-bash
-Copy code
-github
-Each command has specific usage patterns, and some may accept arguments. Refer to the provided examples for proper syntax.
-
+All the blogs are stored in my [blogs repo](https://github.com/leomosley/blogs) and as of now to add a blog I just add a markdown file to the repo and then physically update the `blogs` list in [`blogs/index.ts`](/blogs/index.ts). The content of the blog is fetched using the [this](https://raw.githubusercontent.com/leomosley/leomosley/main/README.md) api.

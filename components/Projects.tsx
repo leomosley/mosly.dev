@@ -27,12 +27,11 @@ async function getShowcaseRepos() {
 
 export default async function Projects() {
   const repos = await getShowcaseRepos();
-  const temp = [...repos!, ...repos!];
   return (
     <section id="projects" className="w-full space-y-5">
       <h2 className="text-xl font-bold mt-12">Projects</h2>
       <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
-        {temp?.slice(0, 6).map((repo, index) => (
+        {repos?.slice(0, 6).map((repo, index) => (
           <div key={index} className="flex flex-1 flex-col space-y-2">
             <a
               className={clsx(

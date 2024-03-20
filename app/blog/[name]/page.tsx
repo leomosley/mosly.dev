@@ -11,7 +11,7 @@ export default function Blog({ params } : { params: { name: string}}) {
         {blog? (
           <Markdown>{content}</Markdown>
         ) : (
-          <p>Content couldn't be loaded</p>
+          <p>Content couldn't be loaded.</p>
         )}
       </article>
     </main>

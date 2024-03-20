@@ -1,7 +1,11 @@
 import React from 'react';
 import { blogs } from '@/blogs';
 import BlogItem from '@/components/BlogItem';
-import Header from '@/components/Header';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog • Leo Mosley'
+}
 
 export default function BlogHome() {
   return (

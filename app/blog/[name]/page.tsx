@@ -1,7 +1,11 @@
 import React from 'react';
 import Markdown from 'react-markdown';
 import { getBlogByLocation } from '@/blogs';
-import Header from '@/components/Header';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog • Leo Mosley'
+}
 
 async function getRaw(filename: string) {
   const res = await fetch(`https://raw.githubusercontent.com/${process.env.GITHUB_USERNAME}/blogs/main/${filename}`);

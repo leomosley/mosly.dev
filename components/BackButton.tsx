@@ -15,7 +15,7 @@ export default function BackButton() {
     </button>
   ) : (
     <Image
-      className="w-6 filter invert"
+      className="w-5 h-5 filter invert"
       alt="icon"
       src={icon}
     />

@@ -14,7 +14,7 @@ export default async function Blog({ params } : { params: { name: string}}) {
   const content = await getRaw(params.name + ".md");
 
   return (
-    <article className="prose prose-sm prose-invert mt-8">
+    <article className="prose prose-h1:text-3xl prose-invert mt-8">
       {content? (
         <Markdown>{content}</Markdown>
       ) : (

@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { SiAnalogue } from 'react-icons/si';
 import Image from 'next/image';
-import icon from '@/public/icon.png';
+import icon from '@/public/transparent-icon.png';
 
 export default function BackButton() {
   const router = useRouter();

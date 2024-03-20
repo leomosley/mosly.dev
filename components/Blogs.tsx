@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import React, { Suspense } from 'react';
+import React from 'react';
 import { blogs } from '@/blogs';
 
 import BlogItem from './BlogItem';
@@ -8,13 +8,11 @@ import BlogItem from './BlogItem';
 export default function Blogs() {
   return (
     <section id="blog" className="w-full space-y-5">
-      <h2 className="text-xl font-bold mt-12">Blog</h2>
+      <h2 className="text-xl font-bold mt-20">Blog</h2>
       <div className="flex flex-col space-y-4">
-        <Suspense>
-          {blogs?.slice(0, 4).map((blog, index) => (
-            <BlogItem key={index} blog={blog} />
-          ))}
-        </Suspense>
+        {blogs?.slice(0, 4).map((blog, index) => (
+          <BlogItem key={index} blog={blog} />
+        ))}
         <div className="flex">
           <Link
             className={clsx(

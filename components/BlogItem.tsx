@@ -23,7 +23,7 @@ export default function BlogItem({
           href={`/blog/${blog.location}`}  
         >{blog.name}
         </Link>
-        {description && <p className="text-neutral-400">{blog.description}</p>}
+        {description && <p className="text-neutral-300">{blog.description}</p>}
       </div>
       <p className="ml-auto">{blog.date}</p>
     </div>

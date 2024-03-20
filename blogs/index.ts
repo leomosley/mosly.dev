@@ -9,6 +9,8 @@ export interface Blog {
 export const blogs = [
   { name: "Test Blog", filename: "test-blog.md", location: "test-blog", date: "Mar 20, 2024", description: "This is the description for my test blog."},
   { name: "Test Blog 2", filename: "test-blog-2.md", location: "test-blog-2", date: "Mar 20, 2024", description: "This is the description for my test blog."},
+  { name: "Test Blog 2", filename: "test-blog-2.md", location: "test-blog-2", date: "Mar 20, 2024", description: "This is the description for my test blog."},
+  { name: "Test Blog 2", filename: "test-blog-2.md", location: "test-blog-2", date: "Mar 20, 2024", description: "This is the description for my test blog."},
 ] as Blog[];
 
 export function getBlogAt(index: number) {

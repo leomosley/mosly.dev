@@ -31,7 +31,7 @@ export function getBlogByLocation(location: string) {
 
 export function getBlogContent(filename: string) {
   try {
-    return fs.readFileSync("./blogs/" + filename).toString();
+    return fs.readFileSync("./public/blogs/" + filename).toString();
   } catch (error) {
     console.log(error);
   }

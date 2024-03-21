@@ -7,7 +7,7 @@ interface Repo {
 
 async function getRepos() {
   try {
-    const res = await fetch(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`);
+    const res = await fetch(`https://api.github.com/users/${process.env.GITHUB_USERNAME}/repos`, { cache: "no-store" });
     if (!res.ok) {
       throw new Error('Failed to fetch repos');
     }

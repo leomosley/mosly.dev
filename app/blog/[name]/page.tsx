@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 }
 
 async function getRaw(filename: string) {
-  const res = await fetch(`https://raw.githubusercontent.com/${process.env.GITHUB_USERNAME}/blogs/main/${filename}`);
+  const res = await fetch(`https://raw.githubusercontent.com/${process.env.GITHUB_USERNAME}/blogs/main/${filename}`, { cache: "no-store" });
   const raw = res.text();
   return raw;
 }

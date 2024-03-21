@@ -12,26 +12,6 @@
   }
 }
 
-.caret {
-  position: absolute;
-  height: 1.2em;
-  width: 8.75px;
-  display: inline-block;
-  margin-top: 2px;
-  animation: blinker 1s linear infinite;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
-}
-
-.glow {
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0.1;
-  }
-}
-
 ::-webkit-scrollbar {
   width: 12px;
 }

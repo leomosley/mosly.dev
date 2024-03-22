@@ -7,22 +7,13 @@ export interface Blog {
 }
 
 export const blogs = [
-  { name: "Test Blog", filename: "test-blog.md", location: "test-blog", date: "Mar 20, 2024", description: "This is the description for my test blog."},
-  { name: "Test Blog 2", filename: "test-blog-2.md", location: "test-blog-2", date: "Mar 20, 2024", description: "This is the description for my test blog."},
+  { name: "Hello World", filename: "hello-world.md", location: "hello-world", date: "Mar 22, 2024", description: "My blog debut! In this I breakdown how I made the website your using now."},
 ] as Blog[];
-
-export function getBlogAt(index: number) {
-  try {
-    return blogs[index];
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export function getBlogByLocation(location: string) {
   try {
-    let index = blogs.findIndex(blog => blog.location === location);
-    return getBlogAt(index);
+    const blog = blogs.find(blog => blog.location === location);
+    return blog;
   } catch (error) {
     console.log(error);
   }

@@ -1,8 +1,10 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaXTwitter} from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaRss, FaSitemap, FaXTwitter} from 'react-icons/fa6';
 
 export default function Footer() {
   const links = [
+    { href: "https://www.leomosley.com/sitemap.xml", icon: <FaSitemap />},
+    { href: "https://www.leomosley.com/feed.xml", icon: <FaRss />},
     { href: "https://github.com/leomosley", icon: <FaGithub />},
     { href: "https://www.linkedin.com/in/leo-mosley-606785222/", icon: <FaLinkedin />},
     { href: "https://twitter.com/leomosly", icon: <FaXTwitter />},

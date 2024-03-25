@@ -1,5 +1,5 @@
 import React from 'react';
-import { blogs } from '@/blogs';
+import { blogs } from '@/blog';
 import BlogItem from '@/components/BlogItem';
 import { Metadata } from 'next';
 

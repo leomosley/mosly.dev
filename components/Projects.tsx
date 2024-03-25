@@ -17,16 +17,16 @@ async function getRepos() {
     console.error(error);
   }
 }
-async function getShowcaseRepos() {
+async function getProjectRepos() {
   const repos = await getRepos();
   if (repos) {
-    const filtered = repos.filter(repo => repo.topics?.includes('showcase'));
+    const filtered = repos.filter(repo => repo.topics?.includes(process.env.REPO_TAG ?? ""));
     return filtered;
   }
 }
 
 export default async function Projects() {
-  const repos = await getShowcaseRepos();
+  const repos = await getProjectRepos();
   return (
     <section id="projects" className="w-full space-y-5">
       <h2 className="text-xl font-bold mt-12">Projects</h2>

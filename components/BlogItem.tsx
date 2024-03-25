@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { Blog } from '@/blogs';
+import { Blog } from '@/blog';
 
 interface Props {
   blog: Blog;
@@ -20,12 +20,12 @@ export default function BlogItem({
             "underline-offset-4 underline decoration-neutral-500",
             "transition hover:decoration-inherit"
           )}
-          href={`/blog/${blog.location}`}  
-        >{blog.name}
+          href={`/blog/${blog.data.filename.slice(0, -3)}`}  
+        >{blog.data.title}
         </Link>
-        {description && <p className="text-neutral-300">{blog.description}</p>}
+        {description && <p className="text-neutral-300">{blog.data.description}</p>}
       </div>
-      <p className="ml-auto">{blog.date}</p>
+      <p className="ml-auto min-w-fit">{blog.data.date}</p>
     </div>
   );
 }

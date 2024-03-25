@@ -4,4 +4,4 @@ This site provides some info on me, showcases some of my projects, and is the pl
 
 The projects showcased are simply just the GitHub repos which I have given the topic `showcase` - they're fetched using the GitHub api. 
 
-All the blogs are stored in my [blogs repo](https://github.com/leomosley/blogs) and as of now to add a blog I just add a markdown file to the repo and then physically update the `blogs` list in [`blogs/index.ts`](/blogs/index.ts). The content of the blog is fetched using the [this](https://raw.githubusercontent.com/leomosley/leomosley/main/README.md) api.
+I store my blog pages in the [blog](blog) directory and use [gray-matter](https://www.npmjs.com/package/gray-matter) to parse the content and heading information.

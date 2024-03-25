@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
-import { blogs } from '@/blogs';
+import { blogs } from '@/blog';
 
 import BlogItem from './BlogItem';
 

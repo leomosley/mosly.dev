@@ -1,10 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    outputFileTracingIncludes: {
-      '/blog/[path]': ['node_modules/shiki/**/*'],
-    },
-  }
-};
+const nextConfig = {};
 
 module.exports = nextConfig;

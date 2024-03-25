@@ -1,5 +1,5 @@
 import RSS from "rss";
-import { blogs } from "@/blog";
+import { getBlogs } from "@/blog";
 
 export async function GET() {
   const feed = new RSS({
@@ -12,7 +12,7 @@ export async function GET() {
     pubDate: '',
   });
   
-  blogs.map((blog) => {
+  getBlogs().map((blog) => {
     feed.item({
       title: blog.data.title,
       url: `https://www.leomosley.com/${blog.data.filename.slice(0, -3)}`,

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
-import { blogs } from '@/blog';
+import { getBlogs } from '@/blog';
 
 import BlogItem from './BlogItem';
 
 export default function Blogs() {
+  const blogs = getBlogs();
   return (
     <section id="blog" className="w-full space-y-5">
       <h2 className="text-xl font-bold mt-20">Blog</h2>

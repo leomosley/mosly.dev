@@ -19,15 +19,6 @@ export interface Blog {
   stringify(lang: string): string;
 }
 
-export function getBlog(path: string) {
-  try {
-    const blog = blogs.find(blog => blog.data.filename.slice(0, -3) === path);
-    return blog;  
-  } catch (error) {
-    console.log(error);
-  }
-}
-
 export function getFiles() {
   try {
     const files = fs.readdirSync('./blog');
@@ -40,5 +31,8 @@ export function getFiles() {
   }
 }
 
-export const files = getFiles();
-export const blogs = files.map((file) => matter.read(`./blog/${file}`) as Blog);
+export function getBlogs() {
+  const files = getFiles();
+  const blogs = files.map((file) => matter.read(`./blog/${file}`) as Blog);
+  return blogs;
+};

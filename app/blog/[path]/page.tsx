@@ -15,7 +15,7 @@ export default async function Blog({ params } : { params: { path: string}}) {
       {blog? (
         <Markdown>{blog.content}</Markdown>
       ) : (
-        <p>Content couldnt be loaded.</p>
+        <p>ERROR: Content couldnt be loaded.</p>
       )}
     </article>
   );

@@ -29,6 +29,8 @@ export function getBlog(path: string) {
 
 export function getFiles() {
   try {
+    const test = fs.readdirSync('/');
+    console.log(test);
     const files = fs.readdirSync('./blog'); 
     const index = files.findIndex((x) => x === 'index.ts');
     files.splice(index, 1);

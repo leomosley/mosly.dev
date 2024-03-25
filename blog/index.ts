@@ -30,7 +30,7 @@ export function getBlog(path: string) {
 
 export function getFiles() {
   try {
-    const files = fs.readdirSync(path.join('blog'));
+    const files = fs.readdirSync(path.resolve(process.cwd(), 'blog'));
     const index = files.findIndex((x) => x === 'index.ts');
     files.splice(index, 1);
     return files;

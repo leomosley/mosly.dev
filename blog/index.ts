@@ -1,4 +1,5 @@
 import matter from "gray-matter";
+import * as fs from 'fs';
 
 export interface Data {
   title: string;
@@ -17,8 +18,6 @@ export interface Blog {
   stringify(lang: string): string;
 }
 
-export const blogs = [matter.read('./blog/hello-world.md') as Blog];
-
 export function getBlog(path: string) {
   try {
     const blog = blogs.find(blog => blog.data.filename.slice(0, -3) === path);
@@ -27,3 +26,13 @@ export function getBlog(path: string) {
     console.log(error);
   }
 }
+
+export function getFiles() {
+  const files = fs.readdirSync('./blog');
+  const index = files.findIndex((x) => x === 'index.ts');
+  files.splice(index, 1);
+  return files;
+}
+
+export const files = getFiles();
+export const blogs = files.map((file) => matter.read(`./blog/${file}`) as Blog);

@@ -29,10 +29,15 @@ export function getBlog(path: string) {
 }
 
 export function getFiles() {
-  const files = fs.readdirSync(path.join('blog'));
-  const index = files.findIndex((x) => x === 'index.ts');
-  files.splice(index, 1);
-  return files;
+  try {
+    const files = fs.readdirSync(path.join('blog'));
+    const index = files.findIndex((x) => x === 'index.ts');
+    files.splice(index, 1);
+    return files;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 }
 
 export const files = getFiles();

@@ -4,7 +4,9 @@ import { Blog } from '@/blog/interfaces';
 
 export default function getBlogs() {
   try {
-    const files = fs.readdirSync('blog');
+    const files = fs.readdirSync(
+      process.cwd() + '/blog'
+    );
     const markdownPosts = files.filter(file => file.endsWith('.md'));
   
     const blogs = markdownPosts.map((filename) => {

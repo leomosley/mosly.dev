@@ -6,13 +6,13 @@ import { SiAnalogue } from 'react-icons/si';
 export default function BackButton() {
   const router = useRouter();
   const pathname = usePathname();
-  return pathname !== "/" ? (
+  return pathname !== '/' ? (
     <button
-      className="underline-offset-4 underline decoration-neutral-500 transition hover:decoration-inherit"
+      className='underline-offset-4 underline decoration-neutral-500 transition hover:decoration-inherit'
       onClick={() => router.back()}
     >← back
     </button>
   ) : (
-    <SiAnalogue style={{ rotate: "250deg"}} />
+    <SiAnalogue style={{ rotate: '250deg'}} />
   );
 }

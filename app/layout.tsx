@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Portfolio • Leo Mosley',
+  title: `Portfolio • ${process.env.GITHUB_USERNAME}`,
   description: 'Software Engineering Student portfolio',
   icons: {
     icon: '/icon.png'
@@ -20,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={inter.className}>
-        <main className="flex flex-col p-6 mx-auto max-w-2xl">
+        <main className='flex flex-col p-6 mx-auto max-w-2xl'>
           <Header />
           {children}
           <Footer />

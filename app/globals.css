@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  scroll-behavior: smooth;
+}
 @layer base {
   body {
     @apply
       bg-neutral-900
       text-gray-200
-      scroll-smooth
       tracking-tight
   }
 }

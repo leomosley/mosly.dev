@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { Blog } from '@/blog';
+import { Blog } from '@/blog/interfaces';
 
 interface Props {
   blog: Blog;

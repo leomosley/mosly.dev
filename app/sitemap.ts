@@ -1,6 +1,7 @@
-import { blogs } from "@/blog";
+import getBlogs from "@/utils/getBlogs";
 
-export default async function Sitemap() {
+export default function Sitemap() {
+  const blogs = getBlogs();
   const url = "https://leomosley.com";
   const blogPath = "/blog/";
   

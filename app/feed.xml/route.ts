@@ -1,7 +1,8 @@
+import getBlogs from "@/utils/getBlogs";
 import RSS from "rss";
-import { blogs } from "@/blog";
 
-export async function GET() {
+export function GET() {
+  const blogs = getBlogs();
   const feed = new RSS({
     title: '',
     description: '',

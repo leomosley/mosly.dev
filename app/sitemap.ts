@@ -3,7 +3,7 @@ import getBlogs from '@/utils/getBlogs';
 export default function Sitemap() {
   const blogs = getBlogs();
   const url = process.env.VERCEL_BRANCH_URL
-    ? 'https://' + process.env.VERCEL_BRANCH_URL
+    ? process.env.PROD_URL
     : 'http://localhost:3000'
   ;
 

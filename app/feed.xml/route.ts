@@ -3,7 +3,7 @@ import RSS from 'rss';
 
 export function GET() {
   const blogs = getBlogs();
-  const url = process.env.VERCEL_BRANCH_URL
+  const url = process.env.VERCEL_URL
     ? process.env.PROD_URL
     : 'http://localhost:3000'
   ;

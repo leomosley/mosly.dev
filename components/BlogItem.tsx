@@ -6,11 +6,13 @@ import { Blog } from '@/blog/interfaces';
 interface Props {
   blog: Blog;
   description?: boolean;
+  date?: boolean;
 }
 
 export default function BlogItem({ 
   blog,
-  description 
+  description=false,
+  date=true
 } : Props) {
   return (
     <div className='flex'>
@@ -25,7 +27,7 @@ export default function BlogItem({
         </Link>
         {description && <p className='text-neutral-300'>{blog.data.description}</p>}
       </div>
-      <p className='ml-auto min-w-fit'>{blog.data.date}</p>
+      {date && <p className='ml-auto min-w-fit'>{blog.data.date}</p>}
     </div>
   );
 }

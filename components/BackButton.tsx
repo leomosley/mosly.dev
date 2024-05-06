@@ -13,6 +13,6 @@ export default function BackButton() {
     >← back
     </button>
   ) : (
-    <SiAnalogue style={{ rotate: '250deg'}} />
+    <SiAnalogue style={{ rotate: '242deg'}} />
   );
 }

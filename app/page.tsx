@@ -10,8 +10,8 @@ export default async function Home() {
         <p>
           Hi there, I&apos;m <b>Leo</b>. 
           I&apos;m a 19 y/o Software Engineering student at <a target='_blank' href='https://www.port.ac.uk/'><b>UoP</b></a>.
-          I&apos;ve have a love for <b>cooking</b> and <b>building things</b>.
-          I enjoy <b>web development</b>, creating fun <b>APIs</b> with <b>Rust</b>, and everything else <b>code</b>. 
+          I'm passionate about <b>coding</b> and <b>building cool things</b>.
+          I enjoy <b>full-stack web development</b>, creating fun <b>APIs</b>, and everything else <b>code</b>. 
         </p>
       </section>
       <Projects />

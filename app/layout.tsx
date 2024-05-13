@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   description: 'Software Engineering Student portfolio',
   icons: {
     icon: '/icon.png'
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://leomosley.com',
+    title: 'Portfolio leomosley',
+    description: 'Software Engineering Student portfolio',
+    siteName: 'Portfolio leomosley',
+    images: [{
+      url: 'https://leomosley.com/preview.png',
+    }],
   }
 }
 

@@ -20,7 +20,7 @@ export async function GET() {
               fontWeight: "800"
             }}
             tw='text-7xl tracking-tight mb-2'
-          >{new URL(process.env.VERCEL_URL ?? "https://mosly.dev").hostname}</span>
+          >mosly.dev</span>
           <span
             style={{
 

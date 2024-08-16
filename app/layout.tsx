@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import { Header } from '@/components/header'
+import { Footer } from '@/components/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,12 +15,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://leomosley.com',
-    title: 'Portfolio leomosley',
+    url: 'https://mosly.dev',
+    title: `Portfolio • ${process.env.GITHUB_USERNAME}`,
     description: 'Software Engineering Student portfolio',
     siteName: 'Portfolio leomosley',
     images: [{
-      url: 'https://leomosley.com/preview.png',
+      url: 'https://mosly.dev/preview.png',
     }],
   }
 }
@@ -39,7 +39,7 @@ export default function RootLayout({
           <Footer />
         </main>
       </body>
-      
+
     </html>
   );
 }

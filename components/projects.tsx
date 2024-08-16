@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 
 interface Repo {
@@ -17,6 +16,7 @@ async function getRepos() {
     console.error(error);
   }
 }
+
 async function getProjectRepos() {
   const repos = await getRepos();
   if (repos) {
@@ -25,8 +25,15 @@ async function getProjectRepos() {
   }
 }
 
-export default async function Projects() {
-  const repos = await getProjectRepos();
+export async function Projects() {
+  // const repos = await getProjectRepos();
+
+  const repos = [
+    { html_url: "string", name: "hellooo", description: "hey here are some words for the description" },
+    { html_url: "string", name: "hellooo", description: "hey here are some words for the description" },
+    { html_url: "string", name: "hellooo", description: "hey here are some words for the description" },
+  ];
+
   return (
     <section id='projects' className='w-full space-y-5'>
       <h2 className='text-xl font-bold mt-12'>Projects</h2>
@@ -39,7 +46,7 @@ export default async function Projects() {
                 'transition hover:decoration-inherit'
               )}
               target='_blank'
-              href={repo.html_url}  
+              href={repo.html_url}
             >{repo.name}
             </a>
             <p className='text-neutral-300'>{repo.description}</p>

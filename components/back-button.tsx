@@ -1,9 +1,8 @@
 'use client';
-import React from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { SiAnalogue } from 'react-icons/si';
 
-export default function BackButton() {
+export function BackButton() {
   const router = useRouter();
   const pathname = usePathname();
   return pathname !== '/' ? (
@@ -13,6 +12,6 @@ export default function BackButton() {
     >← back
     </button>
   ) : (
-    <SiAnalogue style={{ rotate: '242deg'}} />
+    <SiAnalogue style={{ rotate: '242deg' }} />
   );
 }

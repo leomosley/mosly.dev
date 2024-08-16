@@ -1,5 +1,5 @@
 import React from 'react';
-import BlogItem from '@/components/BlogItem';
+import { BlogItem } from '@/components/blog-item';
 import { Metadata } from 'next';
 import getBlogs from '@/utils/getBlogs';
 
@@ -14,11 +14,11 @@ export default function BlogHome() {
       <h1 className='text-4xl font-bold'>Blog</h1>
       {blogs.map((blog, index) => (
         <BlogItem
-          key={index} 
-          blog={blog} 
-          description={true} 
-          date={false} 
-        /> 
+          key={index}
+          blog={blog}
+          description={true}
+          date={false}
+        />
       ))}
     </section>
   )

@@ -17,13 +17,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://mosly.dev',
-    title: `Portfolio • ${process.env.GITHUB_USERNAME}`,
+    title: `portfolio • ${process.env.GITHUB_USERNAME}`,
     description: 'Software Engineering Student portfolio',
-    siteName: 'Portfolio leomosley',
+    siteName: 'mosly.dev',
     images: [{
       url: 'https://mosly.dev/api/og',
     }],
-  }
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "mosly.dev",
+    description: "Portfolio site",
+    creator: "@leomosly",
+    images: [
+      {
+        url: "https://mosly.dev/api/og",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 }
 
 export default function RootLayout({

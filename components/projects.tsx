@@ -26,13 +26,7 @@ async function getProjectRepos() {
 }
 
 export async function Projects() {
-  // const repos = await getProjectRepos();
-
-  const repos = [
-    { html_url: "string", name: "hellooo", description: "hey here are some words for the description" },
-    { html_url: "string", name: "hellooo", description: "hey here are some words for the description" },
-    { html_url: "string", name: "hellooo", description: "hey here are some words for the description" },
-  ];
+  const repos = await getProjectRepos();
 
   return (
     <section id='projects' className='w-full space-y-5'>

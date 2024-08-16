@@ -43,39 +43,6 @@ export async function generateMetadata(
   }
 }
 
-export const metadata: Metadata = {
-  title: `portfolio • ${process.env.GITHUB_USERNAME}`,
-  metadataBase: new URL('https://mosly.dev'),
-  description: 'Software Engineering Student portfolio',
-  icons: {
-    icon: '/icon.png'
-  },
-  openGraph: {
-    type: 'website',
-    url: 'https://mosly.dev',
-    title: `portfolio • ${process.env.GITHUB_USERNAME}`,
-    description: 'Software Engineering Student portfolio',
-    siteName: 'mosly.dev',
-    images: [{
-      url: 'https://mosly.dev/api/og',
-    }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "mosly.dev",
-    description: "Portfolio site",
-    creator: "@leomosly",
-    images: [
-      {
-        url: "https://mosly.dev/api/og",
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-}
-
-
 export default async function Blog({ params }: { params: { slug: string } }) {
   const blog = getBlog(params.slug + '.md');
   return (

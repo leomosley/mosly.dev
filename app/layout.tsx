@@ -8,7 +8,8 @@ import { Footer } from '@/components/footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: `Portfolio • ${process.env.GITHUB_USERNAME}`,
+  title: `portfolio • ${process.env.GITHUB_USERNAME}`,
+  metadataBase: new URL('https://mosly.dev'),
   description: 'Software Engineering Student portfolio',
   icons: {
     icon: '/icon.png'
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Software Engineering Student portfolio',
     siteName: 'Portfolio leomosley',
     images: [{
-      url: 'https://mosly.dev/preview.png',
+      url: 'https://mosly.dev/api/og',
     }],
   }
 }

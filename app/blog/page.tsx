@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import getBlogs from '@/utils/getBlogs';
 
 export const metadata: Metadata = {
-  title: `Blog • ${process.env.GITHUB_USERNAME}`
+  title: `blog • ${process.env.GITHUB_USERNAME}`
 }
 
 export default function BlogHome() {

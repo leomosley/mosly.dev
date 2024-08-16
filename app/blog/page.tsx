@@ -4,7 +4,35 @@ import { Metadata } from 'next';
 import getBlogs from '@/utils/getBlogs';
 
 export const metadata: Metadata = {
-  title: `blog • ${process.env.GITHUB_USERNAME}`
+  title: `blog • ${process.env.GITHUB_USERNAME}`,
+  metadataBase: new URL('https://mosly.dev/blog'),
+  description: 'Software Engineering Students blog',
+  icons: {
+    icon: '/icon.png'
+  },
+  openGraph: {
+    type: 'website',
+    url: 'https://mosly.dev/blog',
+    title: `blog • ${process.env.GITHUB_USERNAME}`,
+    description: 'Software Engineering Students blog',
+    siteName: 'mosly.dev',
+    images: [{
+      url: 'https://mosly.dev/api/og/blog',
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "mosly.dev",
+    description: "A blog page.",
+    creator: "@leomosly",
+    images: [
+      {
+        url: "https://mosly.dev/api/og/blog",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 }
 
 export default function BlogHome() {

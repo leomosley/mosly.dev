@@ -21,15 +21,16 @@ export async function GET(req: NextRequest, { params }: { params: { slug: string
         <div tw='flex flex-col items-center gap-5'>
           <span
             style={{
-              fontWeight: "800"
+              fontWeight: '800',
+              fontSize: '100px',
+              marginTop: '50px'
             }}
-            tw='text-7xl tracking-tight mb-2'
           >{blog ? blog.data.title : '404'}</span>
           <span
             style={{
 
             }}
-            tw='text-3xl tracking-tight text-neutral-400'
+            tw='text-3xl tracking-tight text-gray-500'
           >mosly.dev | blog</span>
         </div>
       </div>

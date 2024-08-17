@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     }],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "mosly.dev",
-    description: "Portfolio site",
-    creator: "@leomosly",
+    card: 'summary_large_image',
+    title: 'mosly.dev',
+    description: 'Software Engineering Student portfolio',
+    creator: '@leomosly',
     images: [
       {
-        url: "https://mosly.dev/api/og",
+        url: 'https://mosly.dev/api/og',
         width: 1200,
         height: 630,
       },

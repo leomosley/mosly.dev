@@ -17,15 +17,17 @@ export async function GET() {
         <div tw='flex flex-col items-center gap-5'>
           <span
             style={{
-              fontWeight: "800"
+              fontWeight: 'bold',
+              fontSize: '160px',
+              marginTop: '50px'
             }}
-            tw='text-7xl tracking-tight mb-2'
           >mosly.dev</span>
           <span
             style={{
-
+              fontWeight: '800',
+              fontSize: '80px',
             }}
-            tw='text-3xl tracking-tight text-neutral-400'
+            tw='text-gray-500'
           >portfolio</span>
         </div>
       </div>

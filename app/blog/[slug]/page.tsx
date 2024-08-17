@@ -1,5 +1,5 @@
 import Markdown from 'react-markdown';
-import getBlog from '@/utils/getBlog';
+import { getBlog } from '@/lib/utils';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { redirect } from 'next/navigation';
 

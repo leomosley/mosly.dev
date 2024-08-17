@@ -1,7 +1,7 @@
 import React from 'react';
 import { BlogItem } from '@/components/blog-item';
 import { Metadata } from 'next';
-import getBlogs from '@/utils/getBlogs';
+import { getBlogs } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: `blog • ${process.env.GITHUB_USERNAME}`,

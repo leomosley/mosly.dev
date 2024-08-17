@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { BlogItem } from './blog-item';
-import getBlogs from '@/utils/getBlogs';
+import { getBlogs } from '@/lib/utils';
 
 export function Blogs() {
   const blogs = getBlogs();

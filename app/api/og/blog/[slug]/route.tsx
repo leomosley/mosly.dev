@@ -1,4 +1,4 @@
-import getBlog from '@/utils/getBlog';
+import { getBlog } from '@/lib/utils';
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 

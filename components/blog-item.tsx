@@ -23,6 +23,7 @@ export function BlogItem({
             'transition hover:decoration-inherit'
           )}
           href={`/blog/${blog.data.filename.slice(0, -3)}`}
+          prefetch={true}
         >{blog.data.title}
         </Link>
         {description && <p className='text-neutral-300'>{blog.data.description}</p>}

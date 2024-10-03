@@ -1,5 +1,7 @@
 import { Projects } from '@/components/projects';
 import { Blogs } from '@/components/blogs';
+import React
+  from 'react';
 
 export default async function Home() {
   return (
@@ -7,7 +9,7 @@ export default async function Home() {
       <section id='intro' className='mt-8'>
         <p>
           Hi there, I&apos;m <b>Leo</b>.
-          I&apos;m a Software Engineering student at <a target='_blank' href='https://www.port.ac.uk/'><b>UoP</b></a>
+          I&apos;m a Software Engineering student at <a target='_blank' href='https://www.port.ac.uk/'><b>UoP</b></a>{" "}
           who&apos;s passionate about <b>coding</b> and <b>building cool things</b>.
           I enjoy <b>full-stack web development</b>, creating fun <b>APIs</b>, and everything else <b>code</b>.
         </p>

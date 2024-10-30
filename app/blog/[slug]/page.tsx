@@ -3,10 +3,8 @@ import { getBlog } from '@/lib/utils';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { redirect } from 'next/navigation';
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
 
   const blog = getBlog(params.slug + '.md');
 
@@ -43,7 +41,8 @@ export async function generateMetadata(
   }
 }
 
-export default async function Blog({ params }: { params: { slug: string } }) {
+export default async function Blog(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const blog = getBlog(params.slug + '.md');
 
   if (!blog) redirect('/404');

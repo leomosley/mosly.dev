@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 
 import { Header } from '@/components/header'
@@ -50,6 +51,7 @@ export default function RootLayout({
         <main className='flex flex-col p-6 mx-auto max-w-2xl'>
           <Header />
           {children}
+          <Analytics />
           <Footer />
         </main>
       </body>

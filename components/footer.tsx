@@ -1,3 +1,4 @@
+import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "@/lib/constants";
 import { env } from "@/lib/env";
 import {
   FaGithub,
@@ -6,7 +7,6 @@ import {
   FaSitemap,
   FaRss,
 } from "react-icons/fa6";
-import { Fragment } from "react/jsx-runtime";
 
 export function Footer() {
   const url = env.VERCEL_URL
@@ -16,12 +16,12 @@ export function Footer() {
   const links = [
     { href: `${url}/sitemap.xml`, icon: <FaSitemap /> },
     { href: `${url}/feed.xml`, icon: <FaRss /> },
-    { href: "https://github.com/leomosley", icon: <FaGithub /> },
+    { href: GITHUB_LINK, icon: <FaGithub /> },
     {
-      href: "https://www.linkedin.com/in/leo-mosley-22b7b229b/",
+      href: LINKEDIN_LINK,
       icon: <FaLinkedin />,
     },
-    { href: "https://twitter.com/leomosly", icon: <FaXTwitter /> },
+    { href: TWITTER_LINK, icon: <FaXTwitter /> },
   ];
 
   return (

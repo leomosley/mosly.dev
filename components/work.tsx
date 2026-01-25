@@ -1,13 +1,4 @@
-const WORK = [
-  {
-    company: "Elanco",
-    link: "https://www.elanco.com",
-    position: "Software Engineer",
-    duration: "2025 - Present",
-    description:
-      "Contributed to the development of a internal AI chatbot that leverages LLMs, from multiple model providers, to help employees streamline workflows, content generation, and retrieve complex information. Was a key contributor to a dynamic application for mapping and visualizing product team structures and hierarchies, improving visibility and resource allocation.",
-  },
-] as const;
+import { WORK } from "@/lib/constants";
 
 export function Work() {
   return (

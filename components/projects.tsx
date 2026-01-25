@@ -1,5 +1,5 @@
+import { GITHUB_LINK } from "@/lib/constants";
 import { env } from "@/lib/env";
-import clsx from "clsx";
 
 interface Repo {
   [key: string]: string;
@@ -33,11 +33,7 @@ async function getProjectRepos() {
 export function ProjectLink({ repo }: { repo?: Repo }) {
   if (!repo) {
     return (
-      <a
-        className="link"
-        target="_blank"
-        href={`https://github.com/${env.GITHUB_USERNAME}`}
-      >
+      <a className="link" target="_blank" href={GITHUB_LINK}>
         All projects →
       </a>
     );

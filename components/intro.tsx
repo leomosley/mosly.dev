@@ -1,3 +1,5 @@
+import { ELANCO_LINK, UOP_LINK } from "@/lib/constants";
+
 function IntroLink({
   href,
   children,
@@ -18,11 +20,11 @@ export function Intro() {
       <p>
         Hi there, I&apos;m <b>Leo</b>. I&apos;m a Software Engineering student{" "}
         {"@ "}
-        <IntroLink href="https://www.port.ac.uk/">
+        <IntroLink href={UOP_LINK}>
           <b>UoP</b>
         </IntroLink>{" "}
         currently on placement {"@ "}
-        <IntroLink href="https://www.elanco.com/">
+        <IntroLink href={ELANCO_LINK}>
           <b>Elanco</b>
         </IntroLink>
         . I&apos;m passionate about <b>coding</b> and <b>building things</b>. I

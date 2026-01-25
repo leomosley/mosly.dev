@@ -8,7 +8,9 @@ export function Header() {
       <Link href="/" prefetch={false}>
         <Icon />
       </Link>
-      <p className="ml-auto text-neutral-400">{env.GITHUB_USERNAME}</p>
+      <p className="ml-auto text-neutral-400">
+        {env.NEXT_PUBLIC_GITHUB_USERNAME}
+      </p>
     </header>
   );
 }

@@ -32,14 +32,14 @@ interface Blog {
 async function getGitHubRepos(): Promise<Repo[]> {
   try {
     const res = await fetch(
-      `https://api.github.com/users/${env.GITHUB_USERNAME}/repos`,
+      `https://api.github.com/users/${env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
     );
     if (!res.ok) {
       console.error("Failed to fetch GitHub repos");
       return [];
     }
     const repos = (await res.json()) as Repo[];
-    return repos.filter((repo) => repo.topics?.includes(env.REPO_TAG ?? ""));
+    return repos.filter((repo) => repo.topics?.includes(env.NEXT_PUBLIC_REPO_TAG ?? ""));
   } catch (error) {
     console.error("Error fetching repos:", error);
     return [];
@@ -76,7 +76,7 @@ function generateMarkdown(repos: Repo[], blogs: Blog[]): string {
   const md: string[] = [];
 
   // Header
-  md.push(`# Context: ${env.DOMAIN}`);
+  md.push(`# Context: ${env.NEXT_PUBLIC_DOMAIN}`);
   md.push("");
   md.push("");
   md.push(`Last updated: ${new Date().toISOString()}`);
@@ -95,10 +95,10 @@ function generateMarkdown(repos: Repo[], blogs: Blog[]): string {
   // Social Links
   md.push("## Social Links");
   md.push("");
-  md.push(`- **GitHub**: [${env.GITHUB_USERNAME}](${GITHUB_LINK})`);
+  md.push(`- **GitHub**: [${env.NEXT_PUBLIC_GITHUB_USERNAME}](${GITHUB_LINK})`);
   md.push(`- **LinkedIn**: [Leo Mosley](${LINKEDIN_LINK})`);
   md.push(`- **Twitter/X**: [@leomosly](${TWITTER_LINK})`);
-  md.push(`- **Website**: [${env.DOMAIN}](https://${env.DOMAIN})`);
+  md.push(`- **Website**: [${env.NEXT_PUBLIC_DOMAIN}](https://${env.NEXT_PUBLIC_DOMAIN})`);
   md.push("");
 
   // Work Experience
@@ -160,7 +160,7 @@ function generateMarkdown(repos: Repo[], blogs: Blog[]): string {
         md.push(blog.description);
         md.push("");
       }
-      md.push(`[Read more](https://${env.DOMAIN}/blog/${blog.filename.slice(0, -3)})`);
+      md.push(`[Read more](https://${env.NEXT_PUBLIC_DOMAIN}/blog/${blog.filename.slice(0, -3)})`);
       md.push("");
     });
   }
@@ -182,7 +182,7 @@ function generateMarkdown(repos: Repo[], blogs: Blog[]): string {
   md.push("---");
   md.push("");
   md.push(
-    `*Generated from ${env.DOMAIN} source code. For the most up-to-date information, visit [${env.DOMAIN}](https://${env.DOMAIN})*`,
+    `*Generated from ${env.NEXT_PUBLIC_DOMAIN} source code. For the most up-to-date information, visit [${env.NEXT_PUBLIC_DOMAIN}](https://${env.NEXT_PUBLIC_DOMAIN})*`,
   );
 
   return md.join("\n");

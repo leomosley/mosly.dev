@@ -5,32 +5,32 @@ import { getBlogs } from "@/lib/blog";
 import { env } from "@/lib/env";
 
 export const metadata: Metadata = {
-  title: `${env.DOMAIN} | blog`,
-  metadataBase: new URL(`https://${env.DOMAIN}/blog`),
+  title: `${env.NEXT_PUBLIC_DOMAIN} | blog`,
+  metadataBase: new URL(`https://${env.NEXT_PUBLIC_DOMAIN}/blog`),
   description: "Software Engineering Students blog",
   icons: {
     icon: "/icon.png",
   },
   openGraph: {
     type: "website",
-    url: `https://${env.DOMAIN}/blog`,
-    title: `blog • ${env.GITHUB_USERNAME}`,
+    url: `https://${env.NEXT_PUBLIC_DOMAIN}/blog`,
+    title: `blog • ${env.NEXT_PUBLIC_GITHUB_USERNAME}`,
     description: "Software Engineering Students blog",
-    siteName: "{env.DOMAIN}",
+    siteName: "{env.NEXT_PUBLIC_DOMAIN}",
     images: [
       {
-        url: `https://${env.DOMAIN}/api/og/blog`,
+        url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: env.DOMAIN,
+    title: env.NEXT_PUBLIC_DOMAIN,
     description: "A blog page.",
     creator: "@leomosly",
     images: [
       {
-        url: `https://${env.DOMAIN}/api/og/blog`,
+        url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog`,
         width: 1200,
         height: 630,
       },

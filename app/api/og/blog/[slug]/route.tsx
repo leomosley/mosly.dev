@@ -33,7 +33,7 @@ export async function GET(
           {blog ? blog.data.title : "404"}
         </span>
         <span style={{}} tw="text-3xl tracking-tight text-gray-500">
-          {env.DOMAIN} | blog
+          {env.NEXT_PUBLIC_DOMAIN} | blog
         </span>
       </div>
     </div>,

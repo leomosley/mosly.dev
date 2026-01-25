@@ -1,11 +1,12 @@
 import { env } from "./env";
 
-export const GITHUB_LINK = `https://github.com/${env.GITHUB_USERNAME}`
+export const GITHUB_LINK = `https://github.com/${env.NEXT_PUBLIC_GITHUB_USERNAME}`
 export const ELANCO_LINK = "https://www.elanco.com";
 export const UOP_LINK = "https://www.port.ac.uk/";
 export const LINKEDIN_LINK =
   "https://www.linkedin.com/in/leo-mosley-22b7b229b/";
 export const TWITTER_LINK = "https://twitter.com/leomosly";
+export const MODEL =  "gemma-2-2b-it-q4f16_1-MLC";
 
 export const WORK = [
   {

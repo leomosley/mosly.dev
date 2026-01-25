@@ -4,8 +4,8 @@ import RSS from "rss";
 
 export async function GET() {
   const blogs = await getBlogs();
-  const url = env.VERCEL_URL
-    ? "https://" + env.VERCEL_URL
+  const url = env.NEXT_PUBLIC_VERCEL_URL
+    ? "https://" + env.NEXT_PUBLIC_VERCEL_URL
     : "http://localhost:3000";
   const feed = new RSS({
     title: "",
@@ -23,7 +23,7 @@ export async function GET() {
       url: `${url}${blog.data.filename.slice(0, -3)}`,
       date: blog.data.date,
       description: blog.data.description,
-      author: env.GITHUB_USERNAME,
+      author: env.NEXT_PUBLIC_GITHUB_USERNAME,
     });
   });
 

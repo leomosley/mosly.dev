@@ -20,21 +20,23 @@ export async function generateMetadata(
   const blog = await getBlog(params.slug + ".md");
 
   return {
-    title: `${env.DOMAIN} | blog`,
-    metadataBase: new URL(`https://${env.DOMAIN}/blog/${params.slug}`),
+    title: `${env.NEXT_PUBLIC_DOMAIN} | blog`,
+    metadataBase: new URL(
+      `https://${env.NEXT_PUBLIC_DOMAIN}/blog/${params.slug}`,
+    ),
     description: blog ? blog.data.description : "Not found.",
     icons: {
       icon: "/icon.png",
     },
     openGraph: {
       type: "website",
-      url: `https://${env.DOMAIN}/blog/${params.slug}`,
+      url: `https://${env.NEXT_PUBLIC_DOMAIN}/blog/${params.slug}`,
       title: blog ? blog.data.title : "404",
       description: blog ? blog.data.description : "Not found.",
-      siteName: env.DOMAIN,
+      siteName: env.NEXT_PUBLIC_DOMAIN,
       images: [
         {
-          url: `https://${env.DOMAIN}/api/og/blog/${params.slug}`,
+          url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog/${params.slug}`,
         },
       ],
     },
@@ -45,7 +47,7 @@ export async function generateMetadata(
       creator: "@leomosly",
       images: [
         {
-          url: `https://${env.DOMAIN}/api/og/blog/${params.slug}`,
+          url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog/${params.slug}`,
           width: 1200,
           height: 630,
         },

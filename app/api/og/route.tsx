@@ -22,7 +22,7 @@ export async function GET() {
             marginTop: "50px",
           }}
         >
-          {env.DOMAIN}
+          {env.NEXT_PUBLIC_DOMAIN}
         </span>
         <span
           style={{

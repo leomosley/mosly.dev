@@ -9,8 +9,8 @@ import {
 } from "react-icons/fa6";
 
 export function Footer() {
-  const url = env.VERCEL_URL
-    ? "https://" + env.VERCEL_URL
+  const url = env.NEXT_PUBLIC_VERCEL_URL
+    ? "https://" + env.NEXT_PUBLIC_VERCEL_URL
     : "http://localhost:3000";
 
   const links = [

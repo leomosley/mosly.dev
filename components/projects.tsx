@@ -8,7 +8,7 @@ interface Repo {
 async function getRepos() {
   try {
     const res = await fetch(
-      `https://api.github.com/users/${env.GITHUB_USERNAME}/repos`,
+      `https://api.github.com/users/${env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
     );
     if (!res.ok) {
       throw new Error("Failed to fetch repos");
@@ -24,7 +24,7 @@ async function getProjectRepos() {
   const repos = await getRepos();
   if (repos) {
     const filtered = repos.filter((repo) =>
-      repo.topics?.includes(env.REPO_TAG ?? ""),
+      repo.topics?.includes(env.NEXT_PUBLIC_REPO_TAG ?? ""),
     );
     return filtered;
   }

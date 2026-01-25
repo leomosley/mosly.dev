@@ -5,7 +5,7 @@ const WORK = [
     position: "Software Engineer",
     duration: "2025 - Present",
     description:
-      "Contributed to the development of a secure, internal AI assistant that leverages Large Language Models (LLMs) to help employees streamline daily workflows, automate content generation, and retrieve complex information. Was a key contributor to a dynamic application for mapping and visualizing product team structures and hierarchies, improving visibility into cross-functional alignment and resource allocation.",
+      "Contributed to the development of a internal AI chatbot that leverages LLMs, from multiple model providers, to help employees streamline workflows, content generation, and retrieve complex information. Was a key contributor to a dynamic application for mapping and visualizing product team structures and hierarchies, improving visibility and resource allocation.",
   },
 ] as const;
 

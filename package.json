@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "bun run --bun next dev",
+    "prebuild": "bun run scripts/generate-context.ts",
     "build": "bun run --bun next build",
     "start": "bun run --bun next start",
     "lint": "next lint",
-    "prettier:write": "prettier --write ."
+    "prettier:write": "prettier --write .",
+    "generate-context": "bun run scripts/generate-context.ts"
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "^0.13.10",

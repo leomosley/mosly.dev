@@ -7,27 +7,15 @@
 }
 @layer base {
   body {
-    @apply
-      bg-neutral-900
-      text-gray-200
-      tracking-tight
+    @apply bg-neutral-950 tracking-tight text-gray-200;
+  }
+
+  .link {
+    @apply underline decoration-neutral-500 underline-offset-4 transition hover:decoration-inherit;
   }
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  @apply bg-neutral-800
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-neutral-900
-
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-800/70
+/* Scrollbar */
+body {
+  scrollbar-gutter: stable;
 }

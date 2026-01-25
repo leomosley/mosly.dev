@@ -1,61 +1,60 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'
-import './globals.css'
-
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { manrope } from "@/lib/fonts";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { env } from "@/lib/env";
+import "./globals.css";
 
 export const metadata: Metadata = {
-  title: `portfolio • ${process.env.GITHUB_USERNAME}`,
-  metadataBase: new URL('https://mosly.dev'),
-  description: 'Software Engineering Student portfolio',
+  title: env.DOMAIN,
+  metadataBase: new URL(`https://${env.DOMAIN}`),
+  description: "Software Engineering Student portfolio",
   icons: {
-    icon: '/icon.png'
+    icon: "/icon.png",
   },
   openGraph: {
-    type: 'website',
-    url: 'https://mosly.dev',
-    title: `portfolio • ${process.env.GITHUB_USERNAME}`,
-    description: 'Software Engineering Student portfolio',
-    siteName: 'mosly.dev',
-    images: [{
-      url: 'https://mosly.dev/api/og',
-    }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'mosly.dev',
-    description: 'Software Engineering Student portfolio',
-    creator: '@leomosly',
+    type: "website",
+    url: `https://${env.DOMAIN}`,
+    title: env.DOMAIN,
+    description: "Software Engineering Student portfolio",
+    siteName: env.DOMAIN,
     images: [
       {
-        url: 'https://mosly.dev/api/og',
+        url: `https://${env.DOMAIN}/api/og`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: env.DOMAIN,
+    description: "Software Engineering Student portfolio",
+    creator: "@leomosly",
+    images: [
+      {
+        url: `https://${env.DOMAIN}/api/og`,
         width: 1200,
         height: 630,
       },
     ],
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <main className='flex flex-col p-6 mx-auto max-w-2xl'>
+    <html lang="en">
+      <body className={manrope.variable}>
+        <main className="mx-auto flex md:max-w-2xl min-h-screen flex-col p-4 md:p-6 pb-8">
           <Header />
           {children}
           <Analytics />
           <Footer />
         </main>
       </body>
-
     </html>
   );
 }

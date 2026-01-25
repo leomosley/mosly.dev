@@ -35,7 +35,7 @@ export function CommandMenu({ blogs }: CommandMenuProps) {
     isInitialized,
     messages,
     isLoading,
-    initialize,
+    init,
     unload,
     sendMessage: aiSendMessage,
     clearMessages,
@@ -170,13 +170,14 @@ export function CommandMenu({ blogs }: CommandMenuProps) {
               </div>
             ))}
 
-            {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
-              <div className="flex justify-start">
-                <div className="bg-muted rounded-lg px-4 py-2">
-                  <Loader2 className="h-4 w-4 animate-spin" />
+            {isLoading &&
+              messages[messages.length - 1]?.role !== "assistant" && (
+                <div className="flex justify-start">
+                  <div className="bg-muted rounded-lg px-4 py-2">
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             <div ref={chatEndRef} />
           </div>
@@ -276,7 +277,7 @@ export function CommandMenu({ blogs }: CommandMenuProps) {
           {!isInitialized && (
             <CommandItem
               onSelect={() => {
-                initialize();
+                init();
                 setOpen(false);
               }}
             >

@@ -17,7 +17,7 @@ export function useAI() {
   const [isLoading, setIsLoading] = useState(false);
 
   // Initialize AI with optional toast
-  const initialize = useCallback(async (toastId?: string | number) => {
+  const init = useCallback(async (toastId?: string | number) => {
     try {
       const client = ai();
       await client.init(MODEL, (report) => {
@@ -135,7 +135,7 @@ export function useAI() {
         label: "Enable",
         onClick: () => {
           toast.loading("Initializing AI model...", { id: toastId });
-          initialize(toastId);
+          init(toastId);
         },
       },
       cancel: {
@@ -147,13 +147,13 @@ export function useAI() {
     });
 
     setHasAsked(true);
-  }, [hasAsked, initialize]);
+  }, [hasAsked, init]);
 
   return {
     isInitialized,
     messages,
     isLoading,
-    initialize,
+    init,
     unload,
     sendMessage,
     clearMessages,

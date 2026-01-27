@@ -31,7 +31,7 @@ export function CustomHeading({
       {
         href: `#${id}`,
         className:
-          "anchor absolute -left-6 top-0 hidden opacity-0 transition-opacity group-hover:opacity-100 lg:block",
+          "anchor link absolute -left-6 top-0 hidden opacity-0 transition-opacity group-hover:opacity-100 lg:block",
         "aria-label": `Link to ${children}`,
       },
       "#",
@@ -64,7 +64,8 @@ function CodeBlock({
 }
 
 function InlineCode({ children }: { children: ReactNode }) {
-  const text = typeof children === "string" ? children.replace(/^`|`$/g, "") : children;
+  const text =
+    typeof children === "string" ? children.replace(/^`|`$/g, "") : children;
   return (
     <code className="rounded border border-gray-800 bg-gray-900 px-1.5 py-0.5 font-mono text-sm text-pink-400">
       {text}
@@ -72,34 +73,51 @@ function InlineCode({ children }: { children: ReactNode }) {
   );
 }
 
+function Link(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
+  return (
+    <a className="link" target="_blank" {...props}>
+      {props.children}
+    </a>
+  );
+}
+
 export function RenderMarkdown({ children }: { children: string }) {
   return (
     <Markdown
       components={{
-        h1: ({ children }) => (
+        h1: ({ children }: { children?: ReactNode }) => (
           <CustomHeading level={1}>{children}</CustomHeading>
         ),
-        h2: ({ children }) => (
+        h2: ({ children }: { children?: ReactNode }) => (
           <CustomHeading level={2}>{children}</CustomHeading>
         ),
-        h3: ({ children }) => (
+        h3: ({ children }: { children?: ReactNode }) => (
           <CustomHeading level={3}>{children}</CustomHeading>
         ),
-        h4: ({ children }) => (
+        h4: ({ children }: { children?: ReactNode }) => (
           <CustomHeading level={4}>{children}</CustomHeading>
         ),
-        h5: ({ children }) => (
+        h5: ({ children }: { children?: ReactNode }) => (
           <CustomHeading level={5}>{children}</CustomHeading>
         ),
-        h6: ({ children }) => (
+        h6: ({ children }: { children?: ReactNode }) => (
           <CustomHeading level={6}>{children}</CustomHeading>
         ),
-        code: ({ className, children }) => {
+        code: ({
+          className,
+          children,
+        }: {
+          className?: string;
+          children?: ReactNode;
+        }) => {
           const isInline = !className;
           if (isInline) {
             return <InlineCode>{children}</InlineCode>;
           }
           return <CodeBlock className={className}>{children}</CodeBlock>;
+        },
+        a: (props) => {
+          return <Link {...props} />;
         },
       }}
     >

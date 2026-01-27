@@ -137,7 +137,7 @@
   }
 
   .link {
-    @apply underline underline-offset-4 transition hover:decoration-inherit;
+    @apply hover:decoration-accent decoration-secondary-foreground underline underline-offset-4 transition;
   }
   :root {
     --background: 0 0% 3.9%;

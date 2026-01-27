@@ -3,6 +3,7 @@ import { getBlog, getBlogs } from "@/lib/blog";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { env } from "@/lib/env";
+import { RenderMarkdown } from "@/components/render-markdown";
 
 export async function generateStaticParams() {
   const blogs = await getBlogs();
@@ -66,8 +67,16 @@ export default async function Blog(props: {
 
   return (
     <>
-      <article className="prose text-justify prose-invert prose-h1:text-3xl">
-        <Markdown>{blog.content}</Markdown>
+      <header>
+        <h1 className="mb-2 text-5xl leading-snug font-extrabold tracking-tight md:text-6xl">
+          {blog.data.title}
+        </h1>
+        <p className="text-secondary-foreground mb-6 text-sm">
+          {blog.data.date}
+        </p>
+      </header>
+      <article className="prose prose-invert w-full max-w-none text-justify leading-snug tracking-tight">
+        <RenderMarkdown>{blog.content}</RenderMarkdown>
       </article>
     </>
   );

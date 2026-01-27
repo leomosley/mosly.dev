@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
-import { manrope } from "@/lib/fonts";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CommandMenuProvider } from "@/components/command-menu-provider";
@@ -52,9 +51,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={manrope.variable}>
+      <body>
         <CommandMenuProvider blogs={blogs} />
-        <main className="mx-auto flex md:max-w-2xl min-h-screen flex-col p-4 md:p-6 pb-8">
+        <main className="mx-auto flex min-h-screen flex-col p-4 pb-8 md:max-w-2xl md:p-6">
           <Header />
           {children}
           <Analytics />

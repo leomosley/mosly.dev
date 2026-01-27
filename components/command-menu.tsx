@@ -195,7 +195,7 @@ export function CommandMenu({ blogs }: CommandMenuProps) {
                     : "Initializing AI model..."
                 }
                 disabled={!isInitialized || isLoading}
-                className="flex-1 bg-transparent outline-none text-sm disabled:opacity-50"
+                className="flex-1 bg-transparent outline-hidden text-sm disabled:opacity-50"
               />
               <button
                 onClick={handleSendMessage}

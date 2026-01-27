@@ -24,6 +24,6 @@ export function BackButton() {
       ← back
     </button>
   ) : (
-    <button disabled className="sr-only"></button>
+    <button disabled className="opacity-0"></button>
   );
 }

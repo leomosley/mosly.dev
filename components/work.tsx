@@ -3,7 +3,7 @@ import { WORK } from "@/lib/constants";
 export function Work() {
   return (
     <section id="work" className="w-full">
-      <h2 className="mb-2 mt-8 text-xl font-bold">Work</h2>
+      <h2 className="mt-8 mb-2 text-xl font-bold">Work</h2>
       <div>
         {WORK.map((work, index) => (
           <div key={index} className="mb-6">
@@ -11,15 +11,15 @@ export function Work() {
               href={work.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-lg link font-semibold"
+              className="link text-lg font-semibold"
             >
               {work.company}
             </a>
-            <p className="text-sm text-neutral-400">
+            <p className="text-md text-neutral-400">
               {work.position} ({work.duration})
             </p>
             {work.description && (
-              <p className="mt-1 text-sm text-justify">{work.description}</p>
+              <p className="text-md mt-1 text-justify">{work.description}</p>
             )}
           </div>
         ))}

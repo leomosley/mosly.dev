@@ -23,9 +23,6 @@ export function AiCommandGroup({
           icon={
             <div className="relative">
               <Sparkles className="h-4 w-4 transition-colors" />
-              {isInitialized && (
-                <div className="absolute -top-0.5 -right-0.5 h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              )}
             </div>
           }
           label={isInitialized ? "Start AI Chat" : "AI Loading..."}

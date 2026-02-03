@@ -87,6 +87,7 @@ export function CommandMenu({ blogs }: { blogs: SerializableBlog[] }) {
         isLoading={isLoading}
         onSendMessage={aiSendMessage}
         onBack={resetAiMode}
+        onClearMessages={clearMessages}
       />
     );
   }

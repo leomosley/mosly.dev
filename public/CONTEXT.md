@@ -1,7 +1,7 @@
 # Context: mosly.dev
 
 
-Last updated: 2026-02-03T18:51:18.846Z
+Last updated: 2026-02-03T20:43:29.894Z
 
 ---
 
@@ -57,6 +57,11 @@ This portfolio is built with:
 - **Deployment**: Vercel
 - **Content**: Markdown (gray-matter)
 - **Caching**: Next.js Cache Components with `use cache` directive
+
+## Random Facts
+
+- I love cooking and food
+- My highest rank in Rainbow Six Siege is Champion
 
 
 ## Easter Egg

@@ -20,6 +20,26 @@
       },
       "isBackground": true,
       "problemMatcher": []
+    },
+    {
+      "label": "generate CONTEXT.md",
+      "type": "shell",
+      "command": "bun",
+      "args": ["scripts/generate-context.ts"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "isBackground": true,
+      "problemMatcher": []
     }
   ]
 }

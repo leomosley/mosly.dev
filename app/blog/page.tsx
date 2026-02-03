@@ -7,7 +7,7 @@ import { env } from "@/lib/env";
 export const metadata: Metadata = {
   title: `${env.NEXT_PUBLIC_DOMAIN} | blog`,
   metadataBase: new URL(`https://${env.NEXT_PUBLIC_DOMAIN}/blog`),
-  description: `${env.NEXT_PUBLIC_JOB_TITLE} blog`,
+  description: "blog page",
   icons: {
     icon: "/icon.png",
   },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: "website",
     url: `https://${env.NEXT_PUBLIC_DOMAIN}/blog`,
     title: `blog • ${env.NEXT_PUBLIC_GITHUB_USERNAME}`,
-    description: `${env.NEXT_PUBLIC_JOB_TITLE} blog`,
+    description: `blog page`,
     siteName: env.NEXT_PUBLIC_DOMAIN,
     images: [
       {

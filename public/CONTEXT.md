@@ -1,13 +1,13 @@
 # Context: mosly.dev
 
 
-Last updated: 2026-02-03T20:43:29.894Z
+Last updated: 2026-02-03T21:15:41.748Z
 
 ---
 
 ## About
 
-Hi there, I'm **Leo**. I'm a Software Engineering student @ [University of Portsmouth](https://www.port.ac.uk/) currently on placement @ [Elanco](https://www.elanco.com). I'm passionate about **coding** and **building things**. I enjoy **full-stack web development**, developing **CLI tools**, and everything else **code**.
+{"key":null,"props":{"children":["Hi there, I'm ",{"type":"b","key":null,"props":{"children":"Leo"},"_owner":null,"_store":{}},". I'm a Software Engineer ","@ ",{"key":null,"props":{"href":"https://www.port.ac.uk/","children":{"type":"b","key":null,"props":{"children":"UoP"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}}," ","currently on placement ","@ ",{"key":null,"props":{"href":"https://www.elanco.com/","children":{"type":"b","key":null,"props":{"children":"Elanco"},"_owner":null,"_store":{}}},"_owner":null,"_store":{}},". I'm passionate about ",{"type":"b","key":null,"props":{"children":"coding"},"_owner":null,"_store":{}}," and ",{"type":"b","key":null,"props":{"children":"building things"},"_owner":null,"_store":{}},". I enjoy ",{"type":"b","key":null,"props":{"children":"full-stack web development"},"_owner":null,"_store":{}},", developing ",{"type":"b","key":null,"props":{"children":"CLI tools"},"_owner":null,"_store":{}},", and everything else ",{"type":"b","key":null,"props":{"children":"code"},"_owner":null,"_store":{}},"."]},"_owner":null,"_store":{}}
 
 ## Social Links
 
@@ -24,7 +24,7 @@ Hi there, I'm **Leo**. I'm a Software Engineering student @ [University of Ports
 
 Contributed to the development of a internal AI chatbot that leverages LLMs, from multiple model providers, to help employees streamline workflows, content generation, and retrieve complex information. Was a key contributor to a dynamic application for mapping and visualizing product team structures and hierarchies, improving visibility and resource allocation.
 
-[Visit Elanco](https://www.elanco.com)
+[Visit Elanco](https://www.elanco.com/)
 
 ## Projects
 

@@ -5,6 +5,14 @@ date: Mar 22, 2024
 description: My blog debut! In this I breakdown how I made the website your using now.
 ---
 
+# Heading 1
+
+## Heading 2
+
+## Heading 3
+
+### Heading 4
+
 Hello, welcome to my blog debut. Now that I have this site I thought it made sense to actually post a blog. As you can probably tell already I'm not exactly a professional writer but I promise I'll try my best. Not sure how frequently I'll be making these - but I thought I'd give it a shot.
 
 Anyway enough waffle - what should I talk about? I guess I could talk about how I made this site. The design for this site is heavily influenced by [nexxel.dev](https://www.nexxel.dev) as I absolutely love the simplicity of the design. However, all the code for the site is my own of course. I built this static site with NextJS using Typescript and Tailwind (the only option).

@@ -1,55 +1,83 @@
-import Markdown from 'react-markdown';
-import { getBlog } from '@/lib/utils';
-import type { Metadata, ResolvingMetadata } from 'next';
-import { redirect } from 'next/navigation';
+import Markdown from "react-markdown";
+import { getBlog, getBlogs } from "@/lib/blog";
+import type { Metadata, ResolvingMetadata } from "next";
+import { notFound } from "next/navigation";
+import { env } from "@/lib/env";
+import { RenderMarkdown } from "@/components/render-markdown";
 
-export async function generateMetadata(props: { params: Promise<{ slug: string }> }, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateStaticParams() {
+  const blogs = await getBlogs();
+  return blogs.map((blog) => ({
+    slug: blog.data.filename.slice(0, -3),
+  }));
+}
+
+export async function generateMetadata(
+  props: { params: Promise<{ slug: string }> },
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
   const params = await props.params;
 
-  const blog = getBlog(params.slug + '.md');
+  const blog = await getBlog(params.slug + ".md");
 
   return {
-    title: `blog • ${process.env.GITHUB_USERNAME}`,
-    metadataBase: new URL(`https://mosly.dev/blog/${params.slug}`),
+    title: `${env.NEXT_PUBLIC_DOMAIN} | blog`,
+    metadataBase: new URL(
+      `https://${env.NEXT_PUBLIC_DOMAIN}/blog/${params.slug}`,
+    ),
     description: blog ? blog.data.description : "Not found.",
     icons: {
-      icon: '/icon.png'
+      icon: "/icon.png",
     },
     openGraph: {
-      type: 'website',
-      url: `https://mosly.dev/blog/${params.slug}`,
+      type: "website",
+      url: `https://${env.NEXT_PUBLIC_DOMAIN}/blog/${params.slug}`,
       title: blog ? blog.data.title : "404",
       description: blog ? blog.data.description : "Not found.",
-      siteName: 'mosly.dev',
-      images: [{
-        url: `https://mosly.dev/api/og/blog/${params.slug}`,
-      }],
+      siteName: env.NEXT_PUBLIC_DOMAIN,
+      images: [
+        {
+          url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog/${params.slug}`,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: blog ? blog.data.title : "404",
       description: blog ? blog.data.description : "Not found.",
-      creator: "@leomosly",
+      creator: `@${env.NEXT_PUBLIC_TWITTER_HANDLE}`,
       images: [
         {
-          url: `https://mosly.dev/api/og/blog/${params.slug}`,
+          url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog/${params.slug}`,
           width: 1200,
           height: 630,
         },
       ],
     },
-  }
+  };
 }
 
-export default async function Blog(props: { params: Promise<{ slug: string }> }) {
+export default async function Blog(props: {
+  params: Promise<{ slug: string }>;
+}) {
   const params = await props.params;
-  const blog = getBlog(params.slug + '.md');
+  const blog = await getBlog(params.slug + ".md");
 
-  if (!blog) redirect('/404');
+  if (!blog) notFound();
 
   return (
-    <article className='prose prose-h1:text-3xl prose-invert mt-8'>
-      <Markdown>{blog.content}</Markdown>
-    </article>
+    <>
+      <header>
+        <h1 className="mb-2 text-5xl leading-snug font-extrabold tracking-tight md:text-6xl">
+          {blog.data.title}
+        </h1>
+        <p className="text-secondary-foreground mb-6 text-sm">
+          {blog.data.date}
+        </p>
+      </header>
+      <article className="prose prose-invert w-full max-w-none text-justify leading-snug tracking-tight">
+        <RenderMarkdown>{blog.content}</RenderMarkdown>
+      </article>
+    </>
   );
 }

@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { CommandMenuProvider } from "@/components/command-menu-provider";
+import { ModelLoader } from "@/components/model-loader";
 import { getBlogs } from "@/lib/blog";
 import { env } from "@/lib/env";
 import "./globals.css";
@@ -57,6 +58,7 @@ export default async function RootLayout({
           <Header />
           {children}
           <Analytics />
+          <ModelLoader />
           <Toaster position="bottom-right" theme="dark" />
           <Footer />
         </main>

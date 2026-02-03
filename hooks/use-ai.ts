@@ -12,14 +12,41 @@ export type ChatMessage = {
 
 export function useAI() {
   const [isInitialized, setIsInitialized] = useState(false);
-  const [hasAsked, setHasAsked] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Initialize AI with optional toast
+  // Check if AI is already initialized on mount and poll for initialization
+  useEffect(() => {
+    const client = ai();
+
+    // Check immediately
+    if (client.isReady()) {
+      setIsInitialized(true);
+      return;
+    }
+
+    // Poll every 500ms to detect when model finishes loading
+    const interval = setInterval(() => {
+      if (client.isReady()) {
+        setIsInitialized(true);
+        clearInterval(interval);
+      }
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Initialize AI with optional toast (for manual triggers)
   const init = useCallback(async (toastId?: string | number) => {
     try {
       const client = ai();
+
+      // If already initialized, just update state
+      if (client.isReady()) {
+        setIsInitialized(true);
+        return;
+      }
+
       await client.init(MODEL, (report) => {
         const progress = Math.round(report.progress * 100);
         toast.loading(`Loading AI model... ${progress}%`, {
@@ -49,7 +76,6 @@ export function useAI() {
       const client = ai();
       await client.unload();
       setIsInitialized(false);
-      setHasAsked(false);
       setMessages([]);
       toast.success("AI model unloaded", {
         duration: 2000,
@@ -122,32 +148,6 @@ export function useAI() {
   const clearMessages = useCallback(() => {
     setMessages([]);
   }, []);
-
-  // Show initial consent toast
-  useEffect(() => {
-    if (hasAsked) return;
-
-    const toastId = toast("Enable Local AI?", {
-      description: "Load the AI model to chat about Leo's work and projects",
-      duration: Infinity,
-      position: "bottom-right",
-      action: {
-        label: "Enable",
-        onClick: () => {
-          toast.loading("Initializing AI model...", { id: toastId });
-          init(toastId);
-        },
-      },
-      cancel: {
-        label: "Later",
-        onClick: () => {
-          toast.dismiss(toastId);
-        },
-      },
-    });
-
-    setHasAsked(true);
-  }, [hasAsked, init]);
 
   return {
     isInitialized,

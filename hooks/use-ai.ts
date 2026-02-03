@@ -3,7 +3,8 @@
 import { useState, useEffect, useCallback } from "react";
 import { toast } from "sonner";
 import { ai, type LLMMessage } from "@/lib/ai";
-import { MODEL } from "@/lib/constants";
+import { MODEL } from "@/lib/config";
+import { env } from "@/lib/env";
 
 export type ChatMessage = {
   role: "user" | "assistant";
@@ -107,7 +108,7 @@ export function useAI() {
         const llmMessages: LLMMessage[] = [
           {
             role: "system",
-            content: `You are a helpful assistant on Leo's portfolio website. Here is context about Leo:\n\n${context}\n\nProvide concise, helpful responses about Leo's work, projects, and experience.`,
+            content: `You are a helpful assistant on ${env.NEXT_PUBLIC_FIRST_NAME}'s portfolio website. Here is context about ${env.NEXT_PUBLIC_FIRST_NAME}:\n\n${context}\n\nProvide concise, helpful responses about ${env.NEXT_PUBLIC_FIRST_NAME}'s work, projects, and experience.`,
           },
           ...newMessages.map((msg) => ({
             role: msg.role as "user" | "assistant",

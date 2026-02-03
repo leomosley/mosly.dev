@@ -6,7 +6,7 @@ import {
   FaSitemap,
   FaRss,
 } from "react-icons/fa6";
-import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "@/lib/constants";
+import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "@/lib/config";
 import { NavigationItem, ExternalLinkItem } from "./types";
 
 export const navigationPages: NavigationItem[] = [

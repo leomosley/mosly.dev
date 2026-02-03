@@ -4,12 +4,11 @@ import fs from "fs";
 import matter from "gray-matter";
 import {
   GITHUB_LINK,
+  INTRO,
   LINKEDIN_LINK,
   TWITTER_LINK,
-  ELANCO_LINK,
-  UOP_LINK,
   WORK,
-} from "../lib/constants";
+} from "../lib/config";
 import { env } from "../lib/env";
 
 interface Repo {
@@ -90,7 +89,9 @@ function generateMarkdown(repos: Repo[], blogs: Blog[]): string {
   md.push("## About");
   md.push("");
   md.push(
-    `Hi there, I'm **Leo**. I'm a Software Engineering student @ [University of Portsmouth](${UOP_LINK}) currently on placement @ [Elanco](${ELANCO_LINK}). I'm passionate about **coding** and **building things**. I enjoy **full-stack web development**, developing **CLI tools**, and everything else **code**.`,
+    JSON.stringify(INTRO)
+      .replace(/<[^>]+>/g, "")
+      .replace(/&apos;/g, "'"),
   );
   md.push("");
 
@@ -98,8 +99,10 @@ function generateMarkdown(repos: Repo[], blogs: Blog[]): string {
   md.push("## Social Links");
   md.push("");
   md.push(`- **GitHub**: [${env.NEXT_PUBLIC_GITHUB_USERNAME}](${GITHUB_LINK})`);
-  md.push(`- **LinkedIn**: [Leo Mosley](${LINKEDIN_LINK})`);
-  md.push(`- **Twitter/X**: [@leomosly](${TWITTER_LINK})`);
+  md.push(`- **LinkedIn**: [${env.NEXT_PUBLIC_FULL_NAME}](${LINKEDIN_LINK})`);
+  md.push(
+    `- **Twitter/X**: [@${env.NEXT_PUBLIC_TWITTER_HANDLE}](${TWITTER_LINK})`,
+  );
   md.push(
     `- **Website**: [${env.NEXT_PUBLIC_DOMAIN}](https://${env.NEXT_PUBLIC_DOMAIN})`,
   );

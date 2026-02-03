@@ -12,7 +12,7 @@ import { Toaster } from "@/components/ui/sonner";
 export const metadata: Metadata = {
   title: env.NEXT_PUBLIC_DOMAIN,
   metadataBase: new URL(`https://${env.NEXT_PUBLIC_DOMAIN}`),
-  description: "Software Engineering Student portfolio",
+  description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
   icons: {
     icon: "/icon.png",
   },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     url: `https://${env.NEXT_PUBLIC_DOMAIN}`,
     title: env.NEXT_PUBLIC_DOMAIN,
-    description: "Software Engineering Student portfolio",
+    description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
     siteName: env.NEXT_PUBLIC_DOMAIN,
     images: [
       {
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: env.NEXT_PUBLIC_DOMAIN,
-    description: "Software Engineering Student portfolio",
-    creator: "@leomosly",
+    description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
+    creator: `@${env.NEXT_PUBLIC_TWITTER_HANDLE}`,
     images: [
       {
         url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og`,

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { toast } from "sonner";
 import { ai } from "@/lib/ai";
-import { MODEL } from "@/lib/constants";
+import { MODEL } from "@/lib/config";
 
 async function isModelCached(): Promise<boolean> {
   try {

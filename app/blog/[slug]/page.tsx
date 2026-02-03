@@ -45,7 +45,7 @@ export async function generateMetadata(
       card: "summary_large_image",
       title: blog ? blog.data.title : "404",
       description: blog ? blog.data.description : "Not found.",
-      creator: "@leomosly",
+      creator: `@${env.NEXT_PUBLIC_TWITTER_HANDLE}`,
       images: [
         {
           url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og/blog/${params.slug}`,

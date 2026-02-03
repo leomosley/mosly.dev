@@ -5,6 +5,7 @@ import { CommandDialog } from "@/components/ui/command";
 import { DialogTitle } from "@/components/ui/dialog";
 import { Sparkles, Send, Loader2, Trash2 } from "lucide-react";
 import { RenderMarkdown } from "@/components/render-markdown";
+import { env } from "@/lib/env";
 
 interface Message {
   role: "user" | "assistant";
@@ -55,10 +56,10 @@ export function AiChatDialog({
 
   const examplePrompt = React.useMemo(() => {
     const prompts = [
-      "Tell me about Leo's projects",
-      "What is Leo's tech stack?",
-      "Share a fun fact about Leo",
-      "What blogs has Leo written?",
+      `Tell me about ${env.NEXT_PUBLIC_FIRST_NAME}'s projects`,
+      `What is ${env.NEXT_PUBLIC_FIRST_NAME}'s tech stack?`,
+      `Share a fun fact about ${env.NEXT_PUBLIC_FIRST_NAME}`,
+      `What blogs has ${env.NEXT_PUBLIC_FIRST_NAME} written?`,
       "Is there an easter egg on the site?",
     ];
     return prompts[Math.floor(Math.random() * prompts.length)];
@@ -123,7 +124,7 @@ export function AiChatDialog({
                 <div className="bg-accent/10 absolute inset-0 blur-3xl" />
               </div>
               <p className="text-foreground/90 font-serif text-xl">
-                Ask me anything about Leo
+                Ask me anything about {env.NEXT_PUBLIC_FIRST_NAME}
               </p>
               <p className="text-muted-foreground max-w-xs font-mono text-xs tracking-wide">
                 Try: {examplePrompt}

@@ -1,4 +1,4 @@
-import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "@/lib/constants";
+import { GITHUB_LINK, LINKEDIN_LINK, TWITTER_LINK } from "@/lib/config";
 import { env } from "@/lib/env";
 import {
   FaGithub,
@@ -27,7 +27,7 @@ export function Footer() {
   return (
     <div className="pt-10">
       <footer id="footer" className="my-4 flex border-t-2 border-neutral-400">
-        <div className="ml-auto mt-4 flex gap-4 text-neutral-400">
+        <div className="mt-4 ml-auto flex gap-4 text-neutral-400">
           {links.map((link, index) => (
             <a key={index} className="" target="_blank" href={link.href}>
               {link.icon}

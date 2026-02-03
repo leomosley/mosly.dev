@@ -1,4 +1,4 @@
-import { GITHUB_LINK } from "@/lib/constants";
+import { GITHUB_LINK } from "@/lib/config";
 import { env } from "@/lib/env";
 
 interface Repo {
@@ -51,7 +51,7 @@ export async function Projects() {
 
   return (
     <section id="projects" className="w-full">
-      <h2 className="mb-2 mt-8 text-xl font-bold">Projects</h2>
+      <h2 className="mt-8 mb-2 text-xl font-bold">Projects</h2>
       <div className="mb-6 grid grid-cols-2 gap-6 md:grid-cols-3">
         {repos?.slice(0, 6).map((repo, index) => (
           <div key={index} className="flex flex-1 flex-col space-y-2">

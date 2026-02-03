@@ -1,7 +1,8 @@
 "use client";
 
 import { CreateMLCEngine, MLCEngine } from "@mlc-ai/web-llm";
-import { MODEL } from "./constants";
+import { MODEL } from "./config";
+import { env } from "./env";
 
 export type LLMMessage = {
   role: "system" | "user" | "assistant";
@@ -109,7 +110,7 @@ export class WebLLMClient {
     const messages: LLMMessage[] = [
       {
         role: "system",
-        content: `You are a helpful assistant. Here is context about Leo and his website:\n\n${context}`,
+        content: `You are a helpful assistant. Here is context about ${env.NEXT_PUBLIC_FIRST_NAME} and their website:\n\n${context}`,
       },
       {
         role: "user",

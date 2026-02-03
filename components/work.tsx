@@ -1,4 +1,4 @@
-import { WORK } from "@/lib/constants";
+import { WORK } from "@/lib/config";
 
 export function Work() {
   return (

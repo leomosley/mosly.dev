@@ -1,16 +1,9 @@
-import Markdown from "react-markdown";
 import { getBlog, getBlogs } from "@/lib/blog";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { env } from "@/lib/env";
 import { RenderMarkdown } from "@/components/render-markdown";
-
-export async function generateStaticParams() {
-  const blogs = await getBlogs();
-  return blogs.map((blog) => ({
-    slug: blog.data.filename.slice(0, -3),
-  }));
-}
+import { cacheLife } from "next/cache";
 
 export async function generateMetadata(
   props: { params: Promise<{ slug: string }> },
@@ -60,6 +53,8 @@ export async function generateMetadata(
 export default async function Blog(props: {
   params: Promise<{ slug: string }>;
 }) {
+  "use cache";
+  cacheLife("max");
   const params = await props.params;
   const blog = await getBlog(params.slug + ".md");
 

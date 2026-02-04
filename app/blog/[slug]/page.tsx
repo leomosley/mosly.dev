@@ -50,11 +50,16 @@ export async function generateMetadata(
   };
 }
 
+export async function generateStaticParams() {
+  const blogs = await getBlogs();
+  return blogs.map((blog) => ({
+    slug: blog.data.filename.replace(".md", ""),
+  }));
+}
+
 export default async function Blog(props: {
   params: Promise<{ slug: string }>;
 }) {
-  "use cache";
-  cacheLife("max");
   const params = await props.params;
   const blog = await getBlog(params.slug + ".md");
 

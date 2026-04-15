@@ -1,61 +1,68 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/react'
-import './globals.css'
-
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-
-const inter = Inter({ subsets: ['latin'] })
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { CommandMenuProvider } from "@/components/command-menu-provider";
+import { ModelLoader } from "@/components/model-loader";
+import { getBlogs } from "@/lib/blog";
+import { env } from "@/lib/env";
+import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
-  title: `portfolio • ${process.env.GITHUB_USERNAME}`,
-  metadataBase: new URL('https://mosly.dev'),
-  description: 'Software Engineering Student portfolio',
+  title: env.NEXT_PUBLIC_DOMAIN,
+  metadataBase: new URL(`https://${env.NEXT_PUBLIC_DOMAIN}`),
+  description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
   icons: {
-    icon: '/icon.png'
+    icon: "/icon.png",
   },
   openGraph: {
-    type: 'website',
-    url: 'https://mosly.dev',
-    title: `portfolio • ${process.env.GITHUB_USERNAME}`,
-    description: 'Software Engineering Student portfolio',
-    siteName: 'mosly.dev',
-    images: [{
-      url: 'https://mosly.dev/api/og',
-    }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'mosly.dev',
-    description: 'Software Engineering Student portfolio',
-    creator: '@leomosly',
+    type: "website",
+    url: `https://${env.NEXT_PUBLIC_DOMAIN}`,
+    title: env.NEXT_PUBLIC_DOMAIN,
+    description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
+    siteName: env.NEXT_PUBLIC_DOMAIN,
     images: [
       {
-        url: 'https://mosly.dev/api/og',
+        url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: env.NEXT_PUBLIC_DOMAIN,
+    description: env.NEXT_PUBLIC_SITE_DESCRIPTION,
+    creator: `@${env.NEXT_PUBLIC_TWITTER_HANDLE}`,
+    images: [
+      {
+        url: `https://${env.NEXT_PUBLIC_DOMAIN}/api/og`,
         width: 1200,
         height: 630,
       },
     ],
   },
-}
+};
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const blogs = await getBlogs();
+
   return (
-    <html lang='en'>
-      <body className={inter.className}>
-        <main className='flex flex-col p-6 mx-auto max-w-2xl'>
+    <html lang="en">
+      <body>
+        <CommandMenuProvider blogs={blogs} />
+        <main className="mx-auto flex min-h-screen flex-col p-4 pb-8 md:max-w-2xl md:p-6">
           <Header />
           {children}
           <Analytics />
+          <ModelLoader />
+          <Toaster position="bottom-right" theme="dark" />
           <Footer />
         </main>
       </body>
-
     </html>
   );
 }

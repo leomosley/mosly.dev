@@ -1,10 +1,16 @@
-import { BackButton } from './back-button';
+import { env } from "process";
+import { Icon } from "./icon";
+import Link from "next/link";
 
 export function Header() {
   return (
-    <header id='header' className='flex mb-4'>
-      <BackButton />
-      <p className='text-neutral-400 ml-auto'>{process.env.GITHUB_USERNAME}</p>
+    <header id="header" className="mb-4 flex">
+      <Link href="/" prefetch={false}>
+        <Icon />
+      </Link>
+      <p className="ml-auto text-neutral-400">
+        {env.NEXT_PUBLIC_GITHUB_USERNAME}
+      </p>
     </header>
   );
 }

@@ -23,8 +23,8 @@ export const WORK = [
 
 export const INTRO = (
   <>
-    Hi there, I&apos;m <b>{env.NEXT_PUBLIC_FIRST_NAME}</b>. I&apos;m a Software
-    Engineer {"@ "}
+    Hi there, I&apos;m <b>{env.NEXT_PUBLIC_FIRST_NAME}</b>. I&apos;m a Student{" "}
+    {"@ "}
     <IntroLink href="https://www.port.ac.uk/">
       <b>UoP</b>
     </IntroLink>{" "}

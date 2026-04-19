@@ -1,3 +1,4 @@
+import { cacheLife } from "next/cache";
 import { GITHUB_LINK } from "@/lib/config";
 import { env } from "@/lib/env";
 
@@ -8,7 +9,7 @@ interface Repo {
 async function getRepos() {
   try {
     const res = await fetch(
-      `https://api.github.com/users/${env.NEXT_PUBLIC_GITHUB_USERNAME}/repos`,
+      `https://api.github.com/users/${env.NEXT_PUBLIC_GITHUB_USERNAME}/repos?per_page=100`,
     );
     if (!res.ok) {
       throw new Error("Failed to fetch repos");
@@ -21,6 +22,7 @@ async function getRepos() {
 
 async function getProjectRepos() {
   "use cache";
+  cacheLife("hours");
   const repos = await getRepos();
   if (repos) {
     const filtered = repos.filter((repo) =>

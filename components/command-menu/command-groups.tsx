@@ -1,4 +1,4 @@
-import { CommandGroup, CommandSeparator } from "@/components/ui/command";
+import { CommandGroup } from "@/components/ui/command";
 import { CommandMenuItem } from "./command-menu-item";
 import { NavigationItem, ExternalLinkItem } from "./types";
 import { SerializableBlog } from "@/lib/blog";
@@ -13,28 +13,21 @@ export function AiCommandGroup({
 }) {
   return (
     <>
-      <CommandSeparator className="bg-border/30 my-3" />
       <CommandGroup
         heading="AI Assistant"
         className="animate-in fade-in slide-in-from-top-2 duration-300"
         style={{ animationDelay: "300ms" }}
       >
         <CommandMenuItem
-          icon={
-            <div className="relative">
-              <Sparkles className="h-4 w-4 transition-colors" />
-            </div>
-          }
+          icon={<Sparkles className="h-4 w-4" />}
           label={isInitialized ? "Start AI Chat" : "AI Loading..."}
           onSelect={onStartChat}
           disabled={!isInitialized}
           badge={
             isInitialized ? (
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <div className="h-1.5 w-1.5 rounded-full bg-green-500" />
-                <span className="font-mono text-[9px] tracking-widest text-green-500/80 uppercase">
-                  Ready
-                </span>
+                <span className="text-muted-foreground text-xs">Ready</span>
               </div>
             ) : undefined
           }
@@ -87,7 +80,6 @@ export function BlogPostsCommandGroup({
 
   return (
     <>
-      <CommandSeparator className="bg-border/30 my-3" />
       <CommandGroup
         heading="Recent Posts"
         className="animate-in fade-in slide-in-from-top-2 duration-300"
@@ -120,7 +112,6 @@ export function ExternalLinksCommandGroup({
 }: ExternalLinksCommandGroupProps) {
   return (
     <>
-      <CommandSeparator className="bg-border/30 my-3" />
       <CommandGroup
         heading="External Links"
         className="animate-in fade-in slide-in-from-top-2 duration-300"
@@ -134,9 +125,7 @@ export function ExternalLinksCommandGroup({
             onSelect={() => onOpenLink(link.href)}
             animationDelay={200 + index * 50}
             badge={
-              <span className="text-muted-foreground/50 font-mono text-[9px] tracking-widest uppercase">
-                ↗
-              </span>
+              <span className="text-muted-foreground/50 text-xs">↗</span>
             }
           />
         ))}

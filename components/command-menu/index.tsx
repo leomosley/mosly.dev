@@ -96,79 +96,37 @@ export function CommandMenu({ blogs }: { blogs: SerializableBlog[] }) {
     <CommandDialog open={open} onOpenChange={setOpen}>
       <DialogTitle className="sr-only">Command Menu</DialogTitle>
 
-      {/* Custom Search Input with oversized styling */}
-      <div className="border-border/50 from-background to-muted/10 border-b bg-linear-to-b">
-        <CommandInput
-          placeholder="Search or jump to..."
-          value={inputValue}
-          onValueChange={setInputValue}
-          className="placeholder:text-muted-foreground/60 h-16 font-mono text-base placeholder:tracking-wide"
-        />
-      </div>
+      <CommandInput
+        placeholder="Search or jump to..."
+        value={inputValue}
+        onValueChange={setInputValue}
+        className="h-14 text-base"
+      />
 
-      <CommandList className="max-h-125 p-2">
+      <CommandList className="max-h-[420px] p-2 pb-2.5">
         <CommandEmpty>
-          <div className="py-12 text-center">
-            <p className="text-muted-foreground/80 font-serif text-base">
-              No results found
-            </p>
-            <p className="text-muted-foreground/50 mt-2 font-mono text-xs tracking-wide">
-              Try a different search term
-            </p>
+          <div className="py-10 text-center">
+            <p className="text-muted-foreground text-sm">No results found</p>
           </div>
         </CommandEmpty>
 
-        {/* AI Group */}
         <AiCommandGroup
           isInitialized={isInitialized}
           onStartChat={startAiChat}
         />
 
-        {/* Pages Group */}
         <NavigationCommandGroup
           pages={navigationPages}
           onNavigate={handleNavigate}
         />
 
-        {/* Blog Posts Group */}
         <BlogPostsCommandGroup blogs={blogs} onNavigate={handleNavigate} />
 
-        {/* Links Group */}
         <ExternalLinksCommandGroup
           links={externalLinks}
           onOpenLink={handleOpenLink}
         />
       </CommandList>
-
-      {/* Footer with keyboard hint */}
-      <div className="border-border/30 from-muted/10 border-t bg-linear-to-t to-transparent px-4 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <kbd className="bg-muted/50 border-border/50 text-muted-foreground rounded border px-2 py-1 font-mono text-[10px] tracking-widest">
-              ↑↓
-            </kbd>
-            <span className="text-muted-foreground/60 font-mono text-[10px] tracking-wide">
-              Navigate
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <kbd className="bg-muted/50 border-border/50 text-muted-foreground rounded border px-2 py-1 font-mono text-[10px] tracking-widest">
-              ⏎
-            </kbd>
-            <span className="text-muted-foreground/60 font-mono text-[10px] tracking-wide">
-              Select
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <kbd className="bg-muted/50 border-border/50 text-muted-foreground rounded border px-2 py-1 font-mono text-[10px] tracking-widest">
-              ESC
-            </kbd>
-            <span className="text-muted-foreground/60 font-mono text-[10px] tracking-wide">
-              Close
-            </span>
-          </div>
-        </div>
-      </div>
     </CommandDialog>
   );
 }

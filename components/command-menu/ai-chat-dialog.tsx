@@ -74,7 +74,7 @@ export function AiChatDialog({
           <div className="absolute top-6 left-4 flex items-center gap-3">
             <button
               onClick={onBack}
-              className="text-muted-foreground hover:text-foreground font-mono text-xs tracking-wider uppercase transition-colors"
+              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               ← Back
             </button>
@@ -83,7 +83,7 @@ export function AiChatDialog({
               <button
                 onClick={onClearMessages}
                 disabled={messages.length === 0}
-                className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 font-mono text-xs tracking-wider uppercase transition-colors disabled:cursor-not-allowed disabled:opacity-30"
+                className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-30"
                 title="Clear chat history"
               >
                 <Trash2 className="h-3.5 w-3.5" />
@@ -111,7 +111,7 @@ export function AiChatDialog({
                 <Loader2 className="text-accent h-8 w-8 animate-spin" />
                 <div className="bg-accent/20 absolute inset-0 animate-pulse blur-2xl" />
               </div>
-              <span className="text-muted-foreground font-mono text-sm tracking-wide">
+              <span className="text-muted-foreground text-sm">
                 Initializing model...
               </span>
             </div>
@@ -126,7 +126,7 @@ export function AiChatDialog({
               <p className="text-foreground/90 font-serif text-xl">
                 Ask me anything about {env.NEXT_PUBLIC_FIRST_NAME}
               </p>
-              <p className="text-muted-foreground max-w-xs font-mono text-xs tracking-wide">
+              <p className="text-muted-foreground max-w-xs text-xs">
                 Try: {examplePrompt}
               </p>
             </div>
@@ -204,9 +204,6 @@ export function AiChatDialog({
               <Send className="h-4 w-4" />
             </button>
           </div>
-          <p className="text-muted-foreground/60 mt-2 text-center font-mono text-[10px] tracking-wide">
-            Press Enter to send
-          </p>
         </div>
       </div>
     </CommandDialog>

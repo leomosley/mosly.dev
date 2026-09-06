@@ -15,7 +15,7 @@ export const WORK = [
     company: "Elanco",
     link: "https://www.elanco.com/",
     position: "Software Engineer",
-    duration: "Jun, 2025 - Seo, 2026",
+    duration: "Jun, 2025 - Sep, 2026",
     description:
       "Contributed to the development of a internal AI chatbot that leverages LLMs, from multiple model providers, to help employees streamline workflows, content generation, and retrieve complex information. Was a key contributor to a dynamic application for mapping and visualizing product team structures and hierarchies, improving visibility and resource allocation.",
   },

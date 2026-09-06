@@ -15,7 +15,7 @@ export const WORK = [
     company: "Elanco",
     link: "https://www.elanco.com/",
     position: "Software Engineer",
-    duration: "2025 - Present",
+    duration: "Jun, 2025 - Seo, 2026",
     description:
       "Contributed to the development of a internal AI chatbot that leverages LLMs, from multiple model providers, to help employees streamline workflows, content generation, and retrieve complex information. Was a key contributor to a dynamic application for mapping and visualizing product team structures and hierarchies, improving visibility and resource allocation.",
   },
@@ -23,14 +23,10 @@ export const WORK = [
 
 export const INTRO = (
   <>
-    Hi there, I&apos;m <b>{env.NEXT_PUBLIC_FIRST_NAME}</b>. I&apos;m a Student{" "}
+    Hi there, I&apos;m <b>{env.NEXT_PUBLIC_FIRST_NAME}</b>. An aspiring Software Engineer and a Student{" "}
     {"@ "}
     <IntroLink href="https://www.port.ac.uk/">
       <b>UoP</b>
-    </IntroLink>{" "}
-    currently on placement {"@ "}
-    <IntroLink href="https://www.elanco.com/">
-      <b>Elanco</b>
     </IntroLink>
     . I&apos;m passionate about <b>coding</b> and <b>building things</b>. I
     enjoy <b>full-stack web development</b>, developing <b>CLI tools</b>, and
